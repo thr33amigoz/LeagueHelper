@@ -19,8 +19,7 @@
                 <li><button onclick="myFunction()" class = "dropdown-button"></button></li>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="#">Dark Mode</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
+                    <input type="checkbox" checked="checked">
                 </div>
             </ul>
         </nav>
@@ -51,11 +50,10 @@
     <script>
         function myFunction(){
             document.getElementById("myDropdown").classList.toggle("show");
-            //document.getElementsByClassName("dropdown-content").classList.toggle("show");
         }
 
         window.onclick = function(event){
-            if (!event.target.matches('.dropdown-button')){
+            if (!event.target.matches('.dropdown-button') && !document.getElementsByClassName('dropdown-content')[0].contains(event.target)){
                 var dropdowns = document.getElementsByClassName("dropdown-content");
                 var i;
                 for (i = 0; i < dropdowns.length; i++){
@@ -66,6 +64,8 @@
                 }
             }
         }
+
+
     </script>
 
 </body>
