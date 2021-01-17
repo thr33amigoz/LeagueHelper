@@ -1,0 +1,305 @@
+body{
+    margin: 0px;
+    background: rgb(246, 246, 242);
+    color: rgb(0, 0, 0);
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.dark-mode{
+    background: black;
+}
+header{
+    /*background: rgb(186, 223, 231);*/
+    /*background: rgb(38, 80, 87);*/
+    padding-left: 0px;
+    padding-top: 40px;
+}
+nav{
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+}
+ul{
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+li{
+    display: inline-block;
+    margin-right: 20px;
+    /*text-align: center;*/
+}
+li a{
+    display: block;
+    color: rgb(38, 80, 87);
+    text-align: left;
+    padding: 15px 17px;
+    text-decoration: none;
+    /*border-style: inset;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    */
+}
+li a:hover{
+    background-color: rgb(194, 237, 206);
+}
+li:first-child{
+    padding-left: 55px;
+}
+.color1-light{
+    background-color: rgb(38, 80, 87);
+}
+.color2-light{
+    background-color: rgb(111, 179, 184);
+}
+.color3-light{
+    background-color: rgb(186, 223, 231);
+}
+.color4-light{
+    background-color: rgb(194, 237, 206);
+}
+.color5-light{
+    background-color: rgb(246, 246, 242);
+}
+.nav-bar{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /*padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: green;*/
+    text-decoration: none;
+    color: rgb(111, 179, 184);
+}
+.text-block{
+    opacity: 1;
+    position: relative;
+    background-color: rgb(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    z-index: 2;
+    /*word-wrap: normal;*/
+}
+.dropdown{
+
+}
+.dropdown-button{
+    display: inline-block;
+    position: absolute; 
+    right: 10px;
+    top: 5px;
+    background: url("pictures/settings-wheel.png");
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-position: center;
+    height: 40px;
+    width: 50px;
+    border: none;
+}
+
+.dropdown-button:hover{
+    /*list-style-image: url("pictures/settings-wheel-hover.png");*/
+    background: url("pictures/settings-wheel-hover.png");
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-position: center;
+    height: 40px;
+    width: 50px;
+    margin: 0;
+    padding: 0;
+    /*border: none;*/
+    cursor: pointer;
+    text-indent: -9999999px;
+}
+
+.dropdown-image{
+    background-color: red;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 0;
+    padding: 0;
+    /*border: none;*/
+    cursor: pointer;
+    text-indent: -9999999px;
+}
+
+.dropdown-image:hover{
+    list-style-image: url("pictures/settings-wheel-hover.png");
+    height: 25px;
+    width: 25px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    text-indent: -9999999px;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    top: 50px;
+    right: 10px;
+    width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 10px;
+    text-decoration: none;
+    display: block;
+}
+.show{
+    display: inline-block;
+}
+.title{
+    font-size: x-large;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.main-title{
+    right: 0px;
+    bottom: 350px;
+    width: 300px
+}
+.logo{
+    list-style-image: url("pictures/league-logo.png");
+    /*
+    background-image: url("pictures/league-logo.png");
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    height: 350px;
+    */
+    position: absolute;
+    height: 50px;
+    width: 70px;
+    margin: 0;
+    padding: 0;
+    left: 0px;
+    top: 0px;
+    background-repeat: no-repeat;
+    text-indent: -9999999px;
+}
+.image{
+    margin: 0;
+    padding: 0;
+    margin-top: 12px;
+    background-size: 2000px;
+    /*background-repeat: no-repeat;*/
+    background-position: top;
+    opacity: 0.8;
+    height: 350px;
+    width: 100%;
+    text-indent: -9999999px;
+}
+.home-image-1{
+    background-image: url("pictures/mighty-jax.jpg");
+}
+.home-image-2{
+    background-image: url("pictures/warden-quinn.jpg");
+    position: absolute;
+    top: 395px;
+    z-index: 1;
+}
+.home-image-3{
+    background-image: url("pictures/pool-party-orianna.png");
+    position: absolute;
+    top: 750px;
+    background-position: 50% 20%;
+}
+.home-image-4{
+    background-image: url("pictures/deep-sea-nami.jpg");
+    position: absolute;
+    top: 1105px;
+    background-position: 90% 50%;
+    z-index: 1;
+}
+.stats-title{
+    right: 0px;
+    top: -60px;
+    width: 230px;
+    /*
+    z-index: 4;
+    */
+}
+.stats-body{
+    top: -70px;
+    width: 310px;
+    /*
+    text-align: center;
+    z-index: 2;
+    */
+}
+.map-title{
+    right: 0px;
+    top: 190px;
+    width: 170px;
+    /*
+    z-index: 4;
+    */
+}
+.map-body{
+    top: 180px;
+    width: 400px;
+    /*
+    text-align: center;
+    z-index: 2;
+    */
+}
+.contact-title{
+    right: 0px;
+    top: 443px;
+    width: 90px;
+    /*
+    z-index: 4;
+    */
+}
+.contact-body{
+    top: 435px;
+    width: 300px;
+    /*
+    text-align: center;
+    z-index: 2;
+    */
+}
+.buttons{
+    position: absolute;
+    left: 20px;
+    background-color: rgb(186, 223, 231);
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align = center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-style: inset;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    z-index: 3;
+}
+.stat-button{
+    /*bottom: 370px;*/
+    top: 515px;
+}
+.stat-button:hover{
+    background-color: rgb(194, 237, 206);
+}
+.map-button{
+    /*bottom: 15px;*/
+    top: 870px;
+}
+.map-button:hover{
+    background-color: rgb(194, 237, 206);
+}
+.contact-button{
+    top: 1230px;
+}
+.contact-button:hover{
+    background-color: rgb(194, 237, 206);
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class = "color3-light nav-bar">
+                <li><img src = "pictures/league-logo.png" class = "logo"></li>
+                <li><a href = "index.html">Home</a></li>
+                <li><a href = "pages/stats.html">Cumulative Statistics</a></li>
+                <li><a href = "pages/map.html">Interactive Map</a></li>
+                <li><a href = "pages/contact.html">Contact</a></li>
+
+                <li><button onclick="myFunction()" class = "dropdown-button"></button></li>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Dark Mode</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                </div>
+            </ul>
+        </nav>
+        <p class = "image home-image-1">Mighty Jax Splash Art</p>
+        <p class = "title text-block main-title">League of Legends Helper</p>
+
+        <p class = "image home-image-2">Warden Quinn Splash Art</p>
+        <p class = "title text-block stats-title">Cumulative Statistics</p>
+        <p class = "text-block stats-body">Gather statistics across multiple accounts</p>
+        <button onclick="document.location.href='pages/stats.html'" class = "buttons stat-button">Cumulative Statistics</button>
+       
+        <p class = "image home-image-3">Pool Party Orianna Splash Art</p>
+        <p class = "title text-block map-title">Interactive Map</p>
+        <p class = "text-block map-body">Formulate tactics using an interactive Summoners Rift</p>
+        <button onclick="document.location.href='pages/map.html'" class = "buttons map-button">Interactive Map</button>
+
+        <p class = "image home-image-4">Deep Sea Nami Splash Art</p>
+        <p class = "title text-block contact-title">Contact</p>
+        <p class = "text-block contact-body">Make us aware of any inconviencences</p>
+        <button onclick="document.location.href='pages/contact.html'" class = "buttons contact-button">Contact</button>
+    </header>
+    <section>
+    </section>
+    <footer>
+
+    </footer>
+
+    <script>
+        function myFunction(){
+            document.getElementById("myDropdown").classList.toggle("show");
+            //document.getElementsByClassName("dropdown-content").classList.toggle("show");
+        }
+
+        window.onclick = function(event){
+            if (!event.target.matches('.dropdown-button')){
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++){
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')){
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
