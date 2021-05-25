@@ -6,25 +6,34 @@
     <title>Scroll Website</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body id="body-id">
     <header>
         <nav>
-            <ul class = "color3 nav-bar">
-                <li><img src = "../pictures/league-logo.png" class = "logo"></li>
-                <li><a href = "../index.html">Home</a></li>
-                <li><a href = "stats.html">Cumulative Statistics</a></li>
-                <li><a href = "map.html">Interactive Map</a></li>
-                <li><a href = "contact.html">Contact</a></li>
+            <ul id="nav-bar">
+                <li><img src = "../pictures/league-logo.png" class="logo"></li>
+                <li><a href = "../index.html" class="nav-text" id="list-text1">Home</a></li>
+                <li><a href = "cumulative-stats.html" class="nav-text" id="list-text2">Cumulative Statistics</a></li>
+                <li><a href = "combined-stats.html" class="nav-text" id="list-text5">Combined Statistics</a></li>
+                <li><a href = "map.html" class="nav-text" id="list-text3">Interactive Map</a></li>
+                <li><a href = "contact.html" class="nav-text" id="list-text4">Contact</a></li>
+
+                <li><button onclick="showDropdown()" class="dropdown-button" id="dropdown-image"></button></li>
+                <div id="myDropdown" class="dropdown-content">
+                    <p class="button-text">Dark Mode
+                    <label class = "check-container">
+                        <input id="darkModeCheck" onclick="darkMode()" type="checkbox" checked="checked" class="mine">
+                        <span class="checkmark"></span>
+                    </label>
+                    </p>
+                </div>
             </ul>
         </nav>
         <h1>Contact</h1>
         <p class = "body-text">For any inconviencences or recommendations please email us at: leaguehelper@gmail.com</p>
     </header>
     <section>
-
     </section>
     <footer>
-
     </footer>
 
 </body>

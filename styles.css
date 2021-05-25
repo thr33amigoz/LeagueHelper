@@ -47,7 +47,7 @@ li a:hover{
     background-color: rgb(194, 237, 206);
 }
 li:first-child{
-    padding-left: 55px;
+    padding-left: 60px;
 }
 .color1-light{
     background-color: rgb(38, 80, 87);
@@ -65,15 +65,10 @@ li:first-child{
     background-color: rgb(246, 246, 242);
 }
 .dark-list-hover:hover{
-    background-color: maroon;
+    background-color: rgb(119, 0, 0);
 }
-/*
-.dark-button-hover{
-    background-color: rgb(165, 165, 165);
-}
-*/
-.dark-button-hover:hover{
-    background-color: gray;
+.light-list-hover:hover{
+    background-color: rgb(194, 237, 206);
 }
 #nav-bar{
     margin: 0;
@@ -85,6 +80,7 @@ li:first-child{
     background-color: rgb(186, 223, 231);
     text-decoration: none;
     color: rgb(111, 179, 184);
+    white-space: nowrap;
 }
 .text-block{
     opacity: 1;
@@ -108,7 +104,6 @@ li:first-child{
     width: 50px;
     border: none;
 }
-
 .dropdown-button:hover{
     /*list-style-image: url("pictures/settings-wheel-hover.png");*/
     background: url("pictures/settings-wheel-hover.png");
@@ -123,7 +118,20 @@ li:first-child{
     cursor: pointer;
     text-indent: -9999999px;
 }
-
+.dropdown-button-dark:hover{
+    background: url("pictures/dark-settings-wheel-hover.png");
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-position: center;
+    height: 40px;
+    width: 50px;
+    margin: 0;
+    padding: 0;
+    /*border: none;*/
+    cursor: pointer;
+    text-indent: -9999999px;
+}
+/*
 .dropdown-image{
     background-color: red;
     background-repeat: no-repeat;
@@ -131,11 +139,9 @@ li:first-child{
     width: 30px;
     margin: 0;
     padding: 0;
-    /*border: none;*/
     cursor: pointer;
     text-indent: -9999999px;
 }
-
 .dropdown-image:hover{
     list-style-image: url("pictures/settings-wheel-hover.png");
     height: 25px;
@@ -146,6 +152,7 @@ li:first-child{
     cursor: pointer;
     text-indent: -9999999px;
 }
+*/
 .dropdown-content{
     display: none;
     position: absolute;
@@ -225,17 +232,13 @@ li:first-child{
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
-    
+    white-space: nowrap;
+}
+.dark-main-title{
+    background-image: linear-gradient(to top, #9e0000 0%, #5a5a5a 100%);
 }
 .logo{
     list-style-image: url("pictures/league-logo.png");
-    /*
-    background-image: url("pictures/league-logo.png");
-    margin: 0;
-    padding: 0;
-    background-repeat: no-repeat;
-    height: 350px;
-    */
     position: absolute;
     height: 50px;
     width: 70px;
@@ -270,14 +273,21 @@ li:first-child{
 .home-image-3{
     background-image: url("pictures/pool-party-orianna.png");
     position: absolute;
-    top: 750px;
+    top: 1105px;
     background-position: 50% 20%;
 }
 .home-image-4{
     background-image: url("pictures/deep-sea-nami.jpg");
     position: absolute;
-    top: 1105px;
+    top: 1460px;
     background-position: 90% 50%;
+    z-index: 1;
+}
+.home-image-5{
+    background-image: url("pictures/program-leblanc.jpg");
+    position: absolute;
+    top: 750px;
+    background-position: 70% 10%;
     z-index: 1;
 }
 .dark-image-1{
@@ -296,53 +306,44 @@ li:first-child{
     background-image: url("pictures/marauder-kalista.jpg");
     background-position: 60% 0%;
 }
-.stats-title{
+.dark-image-5{
+    background-image: url("pictures/project-zed.jpg");
+    background-position: 60% 40%;
+}
+.cumulative-stats-title{
     right: 0px;
     top: -175px;
     width: 230px;
-    /*
-    z-index: 4;
-    */
 }
-.stats-body{
+.cumulative-stats-body{
     top: -190px;
     width: 310px;
-    /*
-    text-align: center;
-    z-index: 2;
-    */
+}
+.combined-stats-title{
+    top: 77px;
+    width: 230px;
+}
+.combined-stats-body{
+    width: 310px;
+    top: 62px;
 }
 .map-title{
     right: 0px;
-    top: 77px;
+    top: 328px;
     width: 170px;
-    /*
-    z-index: 4;
-    */
 }
 .map-body{
-    top: 62px;
+    top: 313px;
     width: 400px;
-    /*
-    text-align: center;
-    z-index: 2;
-    */
 }
 .contact-title{
     right: 0px;
-    top: 333px;
+    top: 580px;
     width: 90px;
-    /*
-    z-index: 4;
-    */
 }
 .contact-body{
-    top: 318px;
+    top: 565px;
     width: 300px;
-    /*
-    text-align: center;
-    z-index: 2;
-    */
 }
 .buttons{
     position: absolute;
@@ -360,24 +361,37 @@ li:first-child{
     border-right: 2px solid white;
     z-index: 3;
 }
-
-.stat-button{
+.cumulative-stat-button{
     /*bottom: 370px;*/
     top: 515px;
 }
-.stat-button:hover{
+.cumulative-stat-button:hover{
+    background-color: rgb(194, 237, 206);
+}
+.combined-stat-button{
+    top: 870px;
+}
+.combined-stat-button:hover{
     background-color: rgb(194, 237, 206);
 }
 .map-button{
     /*bottom: 15px;*/
-    top: 870px;
+    top: 1225px;
 }
 .map-button:hover{
     background-color: rgb(194, 237, 206);
 }
 .contact-button{
-    top: 1230px;
+    top: 1581px;
 }
 .contact-button:hover{
     background-color: rgb(194, 237, 206);
+}
+.dark-button{
+    background-color: rgb(141, 24, 24);
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+}
+.dark-button:hover{
+    background-color: rgb(119, 0, 0);
 }

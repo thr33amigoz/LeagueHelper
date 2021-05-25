@@ -12,11 +12,12 @@
             <ul id="nav-bar">
                 <li><img src = "pictures/league-logo.png" class="logo"></li>
                 <li><a href = "index.html" class="nav-text" id="list-text1">Home</a></li>
-                <li><a href = "pages/stats.html" class="nav-text" id="list-text2">Cumulative Statistics</a></li>
+                <li><a href = "pages/cumulative-stats.html" class="nav-text" id="list-text2">Cumulative Statistics</a></li>
+                <li><a href = "pages/combined-stats.html" class="nav-text" id="list-text5">Combined Statistics</a></li>
                 <li><a href = "pages/map.html" class="nav-text" id="list-text3">Interactive Map</a></li>
                 <li><a href = "pages/contact.html" class="nav-text" id="list-text4">Contact</a></li>
 
-                <li><button onclick="showDropdown()" class="dropdown-button"></button></li>
+                <li><button onclick="showDropdown()" class="dropdown-button" id="dropdown-image"></button></li>
                 <div id="myDropdown" class="dropdown-content">
                     <p class="button-text">Dark Mode
                     <label class = "check-container">
@@ -28,116 +29,35 @@
             </ul>
         </nav>
         <p id="img1" class = "image home-image-1">Mighty Jax Splash Art</p>
-        <p class = "title text-block main-title">League of Legends Helper</p>
+        <p id="league-title" class = "title text-block main-title">League of Legends Helper</p>
 
         <p id="img2" class = "image home-image-2">Warden Quinn Splash Art</p>
-        <p class = "title text-block stats-title">Cumulative Statistics</p>
-        <p class = "text-block stats-body">Gather statistics across multiple accounts</p>
-        <button onclick="document.location.href='pages/stats.html'" class="buttons stat-button" id="stat-id">Cumulative Statistics</button>
-       
+        <p class = "title text-block cumulative-stats-title">Cumulative Statistics</p>
+        <p class = "text-block cumulative-stats-body">Gather statistics across multiple accounts</p>
+        <button onclick="document.location.href='pages/cumulative-stats.html'" id="cumulative-stat-id" class="buttons cumulative-stat-button" id="stat-id">Cumulative Statistics</button>
+
+        <p id="img5" class = "image home-image-5">Program Leblanc Splash Art</p>
+        <p class = "title text-block combined-stats-title">Combined Statistics</p>
+        <p class = "text-block combined-stats-body">Compare statistics with other summoners</p>
+        <button onclick="document.location.href='pages/combined-stats.html'" id="combined-stat-id" class="buttons combined-stat-button" id="contact-id">Combined Statistics</button>
+
         <p id="img3" class = "image home-image-3">Pool Party Orianna Splash Art</p>
         <p class = "title text-block map-title">Interactive Map</p>
         <p class = "text-block map-body">Formulate tactics using an interactive Summoners Rift</p>
-        <button onclick="document.location.href='pages/map.html'" class="buttons map-button" id="map-id">Interactive Map</button>
+        <button onclick="document.location.href='pages/map.html'" id="map-id" class="buttons map-button" id="map-id">Interactive Map</button>
 
         <p id="img4" class = "image home-image-4">Deep Sea Nami Splash Art</p>
         <p class = "title text-block contact-title">Contact</p>
         <p class = "text-block contact-body">Make us aware of any inconviencences</p>
-        <button onclick="document.location.href='pages/contact.html'" class="buttons contact-button" id="contact-id">Contact</button>
+        <button onclick="document.location.href='pages/contact.html'" id="contact-id" class="buttons contact-button" id="contact-id">Contact</button>
     </header>
     <section>
     </section>
     <footer>
 
     </footer>
-
+    <script src="app.js"></script>
     <script>
-        function darkMode(){
-            //document.getElementsByClassName("home-image-1")[0].style.background-image = url("pictures/league-logo.png");
-            
-            // Set the general background color to gray
-            document.getElementById("body-id").style.backgroundColor = "rgb(51, 51, 51)";
-            
-            var checkBox = document.getElementById("darkModeCheck");
-            if (checkBox.checked == true){
-                // Change nav-bar text color to black
-                var listElements = document.getElementsByClassName("nav-text");
-                var i;
-                for (i = 0; i < listElements.length; i++){
-                    listElements[i].style.color = "rgb(0, 0, 0)";
-                }
-                
-                // Change nav-bar color to a darker maroon
-                document.getElementById("nav-bar").style.backgroundColor = "rgb(120, 0, 0)";
-
-                // Change hover colors to maroon
-                document.getElementById("list-text1").classList.add('dark-list-hover');
-                document.getElementById("list-text2").classList.add('dark-list-hover');
-                document.getElementById("list-text3").classList.add('dark-list-hover');
-                document.getElementById("list-text4").classList.add('dark-list-hover');
-
-                // Change home page images to a darker theme
-                document.getElementById("img1").classList.add('dark-image-1');
-                document.getElementById("img2").classList.add('dark-image-2');
-                document.getElementById("img3").classList.add('dark-image-3');
-                document.getElementById("img4").classList.add('dark-image-4');
-
-                //document.getElementById("buttons").style.backgroundColor = "rgb(110, 0, 0)";
-                //document.getElementById("buttons").classList.add('dark-button-hover')
-
-                document.getElementById("stat-id").style.backgroundColor = "rgb(120, 0, 0)";
-                document.getElementById("stat-id").classList.add('dark-button-hover');
-                document.getElementById("map-id").style.backgroundColor = "rgb(120, 0, 0)";
-                document.getElementById("map-id").classList.add('dark-button-hover');
-                document.getElementById("contact-id").style.backgroundColor = "rgb(120, 0, 0)";
-                document.getElementById("contact-id").classList.add('dark-button-hover');
-            }
-            else{
-                // Reset the general background color
-                document.getElementById("body-id").style.backgroundColor = "rgb(246, 246, 242)";
-
-                // Change nav-bar text color
-                var listElements = document.getElementsByClassName("nav-text");
-                var i;
-                for (i = 0; i < listElements.length; i++){
-                    listElements[i].style.color = "rgb(38, 80, 87)";
-                }
-
-                // Change nav-bar color
-                document.getElementById("nav-bar").style.backgroundColor = "rgb(186, 223, 231)";
-                
-                // Change hover colors
-                document.getElementById("list-text1").classList.remove('newHover');
-                document.getElementById("list-text2").classList.remove('newHover');
-                document.getElementById("list-text3").classList.remove('newHover');
-                document.getElementById("list-text4").classList.remove('newHover');
-
-                // Reset the home page images
-                document.getElementById("img1").classList.remove('dark-image-1');
-                document.getElementById("img2").classList.remove('dark-image-2');
-                document.getElementById("img3").classList.remove('dark-image-3');
-                document.getElementById("img4").classList.remove('dark-image-4');
-            }
-            //document.getElementById("img1").style. = red;
-        }
-        function showDropdown(){
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        window.onclick = function(event){
-            if (!event.target.matches('.dropdown-button') && !document.getElementsByClassName('dropdown-content')[0].contains(event.target)){
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++){
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')){
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="app.js">
     </script>
 </body>
 </html>
