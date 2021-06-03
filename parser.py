@@ -1,6 +1,9 @@
+from flask import Flask, jsonify, render_template, request
+app = Flask(__name__)
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
+@app.route('/info_gather_season', methods=['GET', 'POST'])
 def info_gather_season(url):
     page = urlopen(url)
     html = page.read().decode("utf-8")
@@ -38,6 +41,7 @@ def info_gather_season(url):
 
     return champ_info
 
+@app.route('/info_gather', methods=['GET', 'POST'])
 def info_gather():
     url = "https://na.op.gg/summoner/champions/userName=AND%201%20AIDAN"
     page = urlopen(url)
@@ -84,6 +88,6 @@ def info_gather():
     info_dict["S10"] = season_10
     info_dict["S11"] = season_11
     
-    print(info_dict)
+    return info_dict
 
-info_gather()
+print(info_gather())

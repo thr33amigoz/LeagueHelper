@@ -18,7 +18,7 @@ nav{
     flex-direction: row;
 }
 .nav-text{
-    color: rgb(38, 80, 87);
+    color: rgb(22, 45, 49);
 }
 ul{
     position: absolute;
@@ -350,7 +350,7 @@ li:first-child{
     left: 20px;
     background-color: rgb(186, 223, 231);
     border: none;
-    color: black;
+    color: rgb(22, 45, 49);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -388,10 +388,87 @@ li:first-child{
     background-color: rgb(194, 237, 206);
 }
 .dark-button{
+    color: rgb(21, 21, 21);
     background-color: rgb(141, 24, 24);
     border-left: 2px solid gray;
     border-right: 2px solid gray;
 }
 .dark-button:hover{
     background-color: rgb(119, 0, 0);
+}
+.comp-button{
+    position: relative;
+    top: 1.5px;
+    left: 10px;
+    background-color: rgb(186, 223, 231);
+    border: none;
+    color: black;
+    padding: 3px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-style: inset;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    z-index: 3;
+}
+.comp-button:hover{
+    background-color: rgb(194, 237, 206);
+}
+.forum-fields{
+    text-align: center;
+    padding: 10px;
+}
+.table{
+    float: left;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    /*left: 41%;*/
+    /*margin-left: 35%;*/
+    border-collapse: collapse;
+    border-style: inset;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    background-color: rgb(186, 223, 231);
+}
+th, td{
+    padding: 20px;
+    border: 1px solid black;
+}
+tr:hover{
+    background-color: rgb(155, 193, 202);
+}
+.scrollmenu{
+    background-color: rgb(186, 223, 231);
+    max-width: 550px;
+    overflow: auto;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+.scrollmenu a{
+    display: inline-block;
+    /*background-color: rgb(186, 223, 231);*/
+    color: rgb(22, 45, 49);
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+.scrollmenu a:hover{
+    background-color: rgb(194, 237, 206);
+}
+/*
+    Allows for colors to be reset correctly and preserve hoverability
+    for the scrollable Statistics tabs.
+*/
+.green-scroll{
+    background-color: rgb(194, 237, 206);
+}
+.table-pic{
+    height: 15px;
+    float: right;
+    padding-left: 5px;
 }

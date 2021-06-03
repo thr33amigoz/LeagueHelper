@@ -1,0 +1,31 @@
+{
+  "name": "app.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "browserify-shim": "^3.8.14",
+    "globally": "^0.0.0",
+    "lodash": "^4.17.21",
+    "module": "^1.2.5",
+    "request": "^2.88.2",
+    "requirejs": "^2.3.6",
+    "save": "^2.4.0",
+    "ss-search": "^1.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thr33amigoz/LeagueHelper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thr33amigoz/LeagueHelper/issues"
+  },
+  "homepage": "https://github.com/thr33amigoz/LeagueHelper#readme"
+}
