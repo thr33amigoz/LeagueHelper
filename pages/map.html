@@ -13,7 +13,7 @@
                 <li><img src = "../pictures/league-logo.png" class="logo"></li>
                 <li><a href = "../index.html" class="nav-text" id="list-text1">Home</a></li>
                 <li><a href = "cumulative-stats.html" class="nav-text" id="list-text2">Cumulative Statistics</a></li>
-                <li><a href = "combined-stats.html" class="nav-text" id="list-text5">Combined Statistics</a></li>
+                <li><a href = "compare-stats.html" class="nav-text" id="list-text5">Compare Statistics</a></li>
                 <li><a href = "map.html" class="nav-text" id="list-text3">Interactive Map</a></li>
                 <li><a href = "contact.html" class="nav-text" id="list-text4">Contact</a></li>
 
@@ -28,11 +28,54 @@
                 </div>
             </ul>
         </nav>
-        <h1>Interactive Map</h1>
+        <!--
+        <p id="map-img-id" class="image map-image">Ruined Draven Splash Art</p>
+        <p id="league-title" class="title text-block main-title" style="bottom:0px;">Interactive Map</p>
+        -->
     </header>
-    <section>
 
-    </section>
+    
+    <canvas></canvas>
+    <div id="newCanvas" style="border: 3px solid blue;"></div>
+    <main class="main-draw">
+        <section class="colors">
+        <!--<input type="button" class="color-picker" value="RED">
+        <input type="button" class="color-picker" value="BLUE" style="left: 130px;">-->
+        <input type="color" class="color-picker" value="#171717">
+        </section>
+        <section class="thickness">
+        <input type="number" class="stroke-weight" value="3">
+        </section>
+        <button class="clear">X</button>
+    </main>
+    <script src="../draw.js"></script>
+    <script src="../app.js"></script>
+    
+<!--
+    <table style="border: none;">
+        <tr><td>
+            <table id="map-table" class="table" width="100%" style="text-align: center;">
+                <tr><td>hi</td>
+                <td>hi2</td></tr>
+                <section class="colors">
+                    <input type="text" class="color-picker" value="#171717" />
+                  </section>
+                  <section class="thickness">
+                    <input type="number" class="stroke-weight" value="3" />
+                  </section>
+                  <button class="clear">X</button>
+            </table>
+        </td>
+        <td width="90%">
+            <canvas style="background: url('../pictures/summoners-rift.webp')" width=1000 height=1000></canvas>
+            <script src="../draw.js"></script>
+        </td></tr>
+    </table>
+-->
+
+    <script>
+        // https://www.w3schools.com/html/html_images_imagemap.asp
+    </script>
     <footer>
 
     </footer>

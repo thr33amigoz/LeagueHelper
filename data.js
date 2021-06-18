@@ -1,7 +1,8 @@
 module.exports = {url_func1: url_gather1, url_func2: url_gather2, data_func1: data_gather1, data_func2: data_gather2, 
-                    table_func1: table_populate1, table_func2: table_populate2}
+                    comb_table_func1: table_populate1, comb_table_func2: table_populate2, cumulative_table_func1: cumulative_table1,
+                    cumulative_table_func2: cumulative_table2}
 
-function url_gather1(ret_func, url, season){
+function url_gather1(ret_func, url, season, purpose){
     const request = require('request')
     request(url, function (
         error,
@@ -25,7 +26,6 @@ function url_gather1(ret_func, url, season){
                 id += string.charAt(i);
             }
         }
-        console.log(id);
 
         var url = "";
         switch(season){
@@ -52,28 +52,11 @@ function url_gather1(ret_func, url, season){
                 break;
         }
 
-        console.log(url);
-        return ret_func(url);
-
-        var url_dict = {1: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=1',
-                        2: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=2',
-                        3: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=3',
-                        4: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=4',
-                        5: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=5',
-                        6: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=6',
-                        7: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=7',
-                        8: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=11',
-                        9: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=13',
-                        10: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=15',
-                        11: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=17'}
-
-        
-
-        return ret_func(url_dict);
+        return ret_func(url, purpose);
     });
 }
 
-function url_gather2(ret_func, url, season){
+function url_gather2(ret_func, url, season, purpose){
     const request = require('request')
     request(url, function (
         error,
@@ -97,7 +80,6 @@ function url_gather2(ret_func, url, season){
                 id += string.charAt(i);
             }
         }
-        console.log(id);
 
         var url = "";
         switch(season){
@@ -124,23 +106,7 @@ function url_gather2(ret_func, url, season){
                 break;
         }
 
-        console.log(url);
-
-        return ret_func(url);
-
-        var url_dict = {1: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=1',
-                        2: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=2',
-                        3: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=3',
-                        4: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=4',
-                        5: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=5',
-                        6: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=6',
-                        7: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=7',
-                        8: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=11',
-                        9: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=13',
-                        10: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=15',
-                        11: 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=17'}
-
-        return ret_func(url_dict);
+        return ret_func(url, purpose);
     });
 }
 
@@ -151,16 +117,15 @@ function data_gather1(ret_func, url, champ){
         response,
         body
     ){
+        champ = champ.replace("'", "&#039;");
         // Locate this champions info
         var pos_champ = body.indexOf(`data-value=\"${champ}\"`);
-        console.log("pos1: ", pos_champ);
         if (pos_champ < 0){
             var arr = ['0% (0W/0L)', '0', '0', '0 (0.0)', '0', '0', '0', '0', '0',
                         '0', '0', '0'];
             return ret_func(arr);
         }
         champ_substr = body.substr(pos_champ, 1500);
-        //console.log("body1: ", champ_substr);
         // Store the # of wins
         var pos_wins = champ_substr.indexOf("Text Left");
         var wins = '0W';
@@ -232,9 +197,9 @@ function data_gather2(ret_func, url, champ){
         response,
         body
     ){
+        champ = champ.replace("'", "&#039;");
         // Locate this champions info
         var pos_champ = body.indexOf(`data-value=\"${champ}\"`);
-        console.log("pos2: ", pos_champ);
         if (pos_champ < 0){
             var arr = ['0% (0W/0L)', '0', '0', '0 (0.0)', '0', '0', '0', '0', '0',
                         '0', '0', '0'];
@@ -304,36 +269,127 @@ function data_gather2(ret_func, url, champ){
     });
 }
 
-function table_populate1(my_arr){
-    console.log("table1: ", my_arr);
-
-    buildTable1(my_arr);
-
-    function buildTable1(data){
-        
-        for (var i = 0; i < data.length; i++){
-            // Insert data into the first table (left)
-            var tds = document.querySelectorAll('#table1 tbody td');
-
-            for (var i = 0; i < tds.length; i++){
-                tds[i].textContent = data[i];
-            }
-        }
+function table_populate1(data){    
+    // Insert data into the first table (left)
+    var tds = document.querySelectorAll('#table1 tbody td');
+    for (var i = 0; i < data.length; i++){
+        tds[i].textContent = data[i];
     }
 }
-function table_populate2(my_arr){
-    console.log("table 2: ", my_arr);
+function table_populate2(data){
+    // Insert data into the second table (right)
+    var tds = document.querySelectorAll('#table2 tbody td');
+    for (var i = 0; i < data.length; i++){
+        tds[i].textContent = data[i];
+    }
+}
 
-    buildTable2(my_arr);
-
-    function buildTable2(data){   
+function cumulative_table1(data){
+    // Insert data into the second table (right)
+    var tds = document.querySelectorAll('#cumulative-table tbody td');
+    console.log(tds[0].textContent);
+    if (tds[0].textContent == ""){
         for (var i = 0; i < data.length; i++){
-            // Insert data into the second table (right)
-            var tds = document.querySelectorAll('#table2 tbody td');
-
-            for (var i = 0; i < tds.length; i++){
-                tds[i].textContent = data[i];
-            }
+            tds[i].textContent = data[i];
         }
     }
+    else{
+        var data2 = []
+        for (var i = 0; i < data.length; i++){
+            data2.push(tds[i].textContent);
+        }
+        data_combine(data, data2, tds);
+    }
+}
+
+function cumulative_table2(data){
+    // Insert data into the second table (right)
+    var tds = document.querySelectorAll('#cumulative-table tbody td');
+    console.log(tds[0].textContent);
+    if (tds[0].textContent == ""){
+        for (var i = 0; i < data.length; i++){
+            tds[i].textContent = data[i];
+        }
+    }
+    else{
+        var data2 = []
+        for (var i = 0; i < data.length; i++){
+            data2.push(tds[i].textContent);
+        }
+        data_combine(data, data2, tds);
+    }
+}
+/*
+*   Adds combined data to the table.
+*/
+function table_combined(data, table){
+    for (var i = 0; i < data.length; i++){
+        table[i].textContent = data[i];
+    }
+}
+
+/*
+*   Combines the data existing within the table with the newly added data.
+*/
+function data_combine(data1, data2, table){
+    // Win Rate
+    var winrate = (parseInt(data2[0].split("% ")[0]) + parseInt(data1[0].split("% ")[0])) / 2;
+    var wins = parseInt(data2[0].split("% ")[1].split("/")[0].match(/\d+/)[0]) + 
+                parseInt(data1[0].split("% ")[1].split("/")[0].match(/\d+/)[0]);
+    var losses = parseInt(data2[0].split("% ")[1].split("/")[1].match(/\d+/)[0]) + 
+                parseInt(data1[0].split("% ")[1].split("/")[1].match(/\d+/)[0]);
+    var winrate_final = winrate + "% (" + wins + "W/" + losses + "L)";
+
+    // KDA
+    var kda = ((parseFloat(data1[1]) + parseFloat(data2[1])) / 2).toFixed(2);
+
+    // Gold
+    var gold = ((parseInt(data1[2].replace(',', '')) + parseInt(data2[2].replace(',', ''))) / 2);
+    gold = gold.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    // CS
+    var cs_total = ((parseFloat(data1[3].split(" (")[0])+ parseFloat(data2[3].split(" (")[0])) / 2).toFixed(1);
+    var cspm = ((parseFloat(data1[3].split(" (")[1])+ parseFloat(data2[3].split(" (")[1])) / 2).toFixed(1);
+    var cs_final = cs_total + " (" + cspm + ")";
+
+    // Max Kills
+    var kills = 0;
+    if (parseInt(data1[4]) > parseInt(data2[4])){
+        kills = parseInt(data1[4]);
+    }
+    else{
+        kills = parseInt(data2[4]);
+    }
+
+    // Max Deaths
+    var deaths = 0;
+    if (parseInt(data1[5]) > parseInt(data2[5])){
+        deaths = parseInt(data1[5]);
+    }
+    else{
+        deaths = parseInt(data2[5]);
+    }
+
+    // Average DMG Dealt
+    var dmg_dealt = ((parseInt(data1[6].replace(',', '')) + parseInt(data2[6].replace(',', ''))) / 2).toFixed(0);
+    dmg_dealt = dmg_dealt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    // Average DMG Taken
+    var dmg_taken = ((parseInt(data1[7].replace(',', '')) + parseInt(data2[7].replace(',', ''))) / 2).toFixed(0);
+    dmg_taken = dmg_taken.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    // Double/triple/quadra/penta kills
+    var double = (parseInt(data1[8].replace(',', '')) + parseInt(data2[8].replace(',', '')));
+    double = double.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    
+    var triple = (parseInt(data1[9].replace(',', '')) + parseInt(data2[9].replace(',', '')));
+    triple = triple.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    var quadra = (parseInt(data1[10].replace(',', '')) + parseInt(data2[10].replace(',', '')));
+    quadra = quadra.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    var penta = (parseInt(data1[11].replace(',', '')) + parseInt(data2[11].replace(',', '')));
+    penta = penta.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    return table_combined([winrate_final, kda, gold, cs_final, kills, deaths, dmg_dealt, dmg_taken, double, triple, quadra, penta], table);
 }

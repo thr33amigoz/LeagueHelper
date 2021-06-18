@@ -14,7 +14,7 @@
                 <li><img src = "pictures/league-logo.png" class="logo"></li>
                 <li><a href = "index.html" class="nav-text" id="list-text1">Home</a></li>
                 <li><a href = "pages/cumulative-stats.html" class="nav-text" id="list-text2">Cumulative Statistics</a></li>
-                <li><a href = "pages/combined-stats.html" class="nav-text" id="list-text5">Combined Statistics</a></li>
+                <li><a href = "pages/compare-stats.html" class="nav-text" id="list-text5">Compare Statistics</a></li>
                 <li><a href = "pages/map.html" class="nav-text" id="list-text3">Interactive Map</a></li>
                 <li><a href = "pages/contact.html" class="nav-text" id="list-text4">Contact</a></li>
 
@@ -22,8 +22,8 @@
                 <div id="myDropdown" class="dropdown-content">
                     <p class="button-text">Dark Mode
                     <label class = "check-container">
-                        <input id="darkModeCheck" onclick="darkMode()" type="checkbox" checked="checked" class="mine">
-                        <span class="checkmark"></span>
+                        <input id="darkModeCheck" onclick="darkModeIndex()" type="checkbox" class="mine">
+                        <!--<span class="checkmark"></span>-->
                     </label>
                     </p>
                 </div>
@@ -38,9 +38,9 @@
         <button onclick="document.location.href='pages/cumulative-stats.html'" id="cumulative-stat-id" class="buttons cumulative-stat-button" id="stat-id">Cumulative Statistics</button>
 
         <p id="img5" class = "image home-image-5">Program Leblanc Splash Art</p>
-        <p class = "title text-block combined-stats-title">Combined Statistics</p>
-        <p class = "text-block combined-stats-body">Compare statistics with other summoners</p>
-        <button onclick="document.location.href='pages/combined-stats.html'" id="combined-stat-id" class="buttons combined-stat-button" id="contact-id">Combined Statistics</button>
+        <p class = "title text-block compare-stats-title">Compare Statistics</p>
+        <p class = "text-block compare-stats-body">Compare statistics with other summoners</p>
+        <button onclick="document.location.href='pages/compare-stats.html'" id="compare-stat-id" class="buttons compare-stat-button" id="contact-id">Compare Statistics</button>
 
         <p id="img3" class = "image home-image-3">Pool Party Orianna Splash Art</p>
         <p class = "title text-block map-title">Interactive Map</p>

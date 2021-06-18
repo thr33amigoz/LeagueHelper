@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "browserify-shim": "^3.8.14",
+    "fabric": "^4.5.0",
     "globally": "^0.0.0",
     "lodash": "^4.17.21",
     "module": "^1.2.5",

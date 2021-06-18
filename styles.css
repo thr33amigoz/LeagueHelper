@@ -196,7 +196,7 @@ li:first-child{
 }
 .mine:checked:after{
     /*content: '\2714';*/
-    content: url(pictures/checkmark.png);
+    content: url("pictures/checkmark.png");
     transform: scale(.025);
 	font-size: 14px;
 	position: absolute;
@@ -233,6 +233,7 @@ li:first-child{
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
     white-space: nowrap;
+    z-index: 2;
 }
 .dark-main-title{
     background-image: linear-gradient(to top, #9e0000 0%, #5a5a5a 100%);
@@ -290,6 +291,37 @@ li:first-child{
     background-position: 70% 10%;
     z-index: 1;
 }
+.comb-stat-image{
+    background-image: url("pictures/freljord-sylas.jpg");
+    position: absolute;
+    top: 40px;
+    height: 190px;
+    background-position: 50% 17%;
+    /*z-index: 1;*/
+}
+.cumulative-stat-image{
+    background-image: url("pictures/guardian-rengar.jpg");
+    position: absolute;
+    top: 40px;
+    height: 190px;
+    background-position: 50% 50%;
+    /*z-index: 1;*/
+}
+.map-image{
+    background-image: url("pictures/ruined-draven.jpg");
+    position: absolute;
+    top: 40px;
+    height: 190px;
+    background-position: 50% 3%;
+    z-index: 1;
+}
+.rift-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 1500px;*/
+    width: 80%;
+}
 .dark-image-1{
     background-image: url("pictures/eternum-cassiopeia.jpg");
     background-position: 70% 0%;
@@ -310,6 +342,14 @@ li:first-child{
     background-image: url("pictures/project-zed.jpg");
     background-position: 60% 40%;
 }
+.dark-image-6{
+    background-image: url("../pictures/arcana-xerath.jpg");
+    background-position: 50% 5%;
+}
+.dark-image-7{
+    background-image: url("../pictures/resistance-yorick.jpg");
+    background-position: 50% 32%;
+}
 .cumulative-stats-title{
     right: 0px;
     top: -175px;
@@ -319,11 +359,11 @@ li:first-child{
     top: -190px;
     width: 310px;
 }
-.combined-stats-title{
+.compare-stats-title{
     top: 77px;
     width: 230px;
 }
-.combined-stats-body{
+.compare-stats-body{
     width: 310px;
     top: 62px;
 }
@@ -368,10 +408,10 @@ li:first-child{
 .cumulative-stat-button:hover{
     background-color: rgb(194, 237, 206);
 }
-.combined-stat-button{
+.compare-stat-button{
     top: 870px;
 }
-.combined-stat-button:hover{
+.compare-stat-button:hover{
     background-color: rgb(194, 237, 206);
 }
 .map-button{
@@ -421,7 +461,6 @@ li:first-child{
     padding: 10px;
 }
 .table{
-    float: left;
     text-align: left;
     margin-left: auto;
     margin-right: auto;
@@ -434,6 +473,12 @@ li:first-child{
     border-right: 2px solid white;
     background-color: rgb(186, 223, 231);
 }
+.dark-table{
+    background-color: rgb(141, 24, 24);
+}
+.dark-table tr:hover{
+    background-color: rgb(119, 0, 0);
+}
 th, td{
     padding: 20px;
     border: 1px solid black;
@@ -441,6 +486,20 @@ th, td{
 tr:hover{
     background-color: rgb(155, 193, 202);
 }
+/*
+#table1 tr:hover{
+    background-color: rgb(155, 193, 202);
+}
+#table2 tr:hover{
+    background-color: rgb(155, 193, 202);
+}
+#map-table tr:hover{
+    background-color: rgb(155, 193, 202);
+}
+#cumulative-table tr:hover{
+    background-color: rgb(155, 193, 202);
+}
+*/
 .scrollmenu{
     background-color: rgb(186, 223, 231);
     max-width: 550px;
@@ -460,6 +519,16 @@ tr:hover{
 .scrollmenu a:hover{
     background-color: rgb(194, 237, 206);
 }
+
+.dark-scroll{
+    background-color: rgb(141, 24, 24);
+}
+.dark-scroll a{
+    color: rgb(0, 0, 0);
+}
+.dark-scroll a:hover{
+    background-color: rgb(119, 0, 0);
+}
 /*
     Allows for colors to be reset correctly and preserve hoverability
     for the scrollable Statistics tabs.
@@ -467,8 +536,126 @@ tr:hover{
 .green-scroll{
     background-color: rgb(194, 237, 206);
 }
+.red-scroll{
+    background-color: rgb(119, 0, 0);
+}
 .table-pic{
     height: 15px;
     float: right;
     padding-left: 5px;
+}
+canvas {
+    /*width: 1200px;*/
+    /*min-height: 900px;*/
+    margin-top: 12px; 
+    /*background: url('../pictures/summoners-rift.webp');*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}
+
+
+
+/*
+    Art thing
+*/
+.body-draw{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background: #F3F3F3;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+.main-draw{
+    position: absolute;
+    top: 48.4px;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    background: #171717;
+}
+.main-draw section{
+    display: block;
+    margin: 15px auto;
+    width: 30px;
+    height: 30px
+}
+.main-draw .colors{
+    /*background: #171717;*/
+    background-image: url('../pictures/color-wheel.png');
+    background-size: 120%;
+    background-position: 50% 50%;
+    border: 1px solid #F3F3F3;
+    position: relative;
+}
+.main-draw .colors:hover .color-picker{
+    display: block;
+}
+.main-draw .colors .color-picker{
+    display: none;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+}
+.main-draw .colors .color-picker:focus{
+    display: block;
+}
+
+
+
+.main-draw .thickness{
+    position: relative;
+    background-color: #F3F3F3;
+}
+.main-draw .thickness::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background: #171717;
+}
+.main-draw .thickness .stroke-weight{
+    display: none;
+    position: absolute;
+    width: auto;
+    height: 25px;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.main-draw .thickness .stroke-weight:focus{
+    display: block;
+}
+.main-draw .thickness:hover .stroke-weight{
+    display: block;
+}
+
+
+
+.main-draw .clear {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    color: #171717;
+    font-size: 20px;
+    font-weight: 900;
+    background-color: #d6ac01;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.light-text{
+    color: rgb(130, 130, 130);
 }
