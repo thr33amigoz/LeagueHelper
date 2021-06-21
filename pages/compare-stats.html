@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Website</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body id="body-id">
+    <header>
+        <nav>
+            <ul id="nav-bar">
+                <li><img src = "../pictures/league-logo.png" class="logo"></li>
+                <li><a href = "../index.html" class="nav-text" id="list-text1">Home</a></li>
+                <li><a href = "cumulative-stats.html" class="nav-text" id="list-text2">Cumulative Statistics</a></li>
+                <li><a href = "compare-stats.html" class="nav-text" id="list-text5">Compare Statistics</a></li>
+                <li><a href = "map.html" class="nav-text" id="list-text3">Interactive Map</a></li>
+                <li><a href = "contact.html" class="nav-text" id="list-text4">Contact</a></li>
+
+                <li><button onclick="showDropdown()" class="dropdown-button" id="dropdown-image"></button></li>
+                <div id="myDropdown" class="dropdown-content">
+                    <p class="button-text">Dark Mode
+                    <label class = "check-container">
+                        <input id="darkModeCheck" onclick="darkModeCompareStats()" type="checkbox" checked="checked" class="mine">
+                        <span class="checkmark"></span>
+                    </label>
+                    </p>
+                </div>
+            </ul>
+        </nav>
+        <p id="img7" class="image comb-stat-image">Freljord Sylas Splash Art</p>
+        <p id="league-title" class="title text-block main-title" style="bottom:0px;">Compare Statistics</p>
+    </header>
+    <!--
+        Gather input from user (2 summoner names to be compared and champ name)
+    -->
+    <div class="forum-fields">
+        <form id="bare-text1">
+            Summoner 1: <input type="text" name="name1" id="first-name" style="margin-right: 15px;">
+            Summoner 2: <input type="text" name="name2" id="second-name" style="margin-right: 15px;">
+            Champion: <input type="text" name="champ" id="champion" style="margin-right: 15px;">
+            <!--<input class="comp-button" type="button" onclick="complete_func();" value="Compare">-->
+        </form>
+    </div>
+
+    <div class="scrollmenu" id="scroll-id">
+        <a href=# id="season-11-comp">Season 11</a>
+        <a href=# id="season-10-comp">Season 10</a>
+        <a href=# id="season-9-comp">Season 9</a>
+        <a href=# id="season-8-comp">Season 8</a>
+        <a href=# id="season-7-comp">Season 7</a>
+        <a href=# id="season-6-comp">Season 6</a>
+        <a href=# id="season-5-comp">Season 5</a>
+        <a href=# id="season-4-comp">Season 4</a>
+        <a href=# id="season-3-comp">Season 3</a>
+        <a href=# id="season-2-comp">Season 2</a>
+        <a href=# id="season-1-comp">Season 1</a>
+    </div>
+
+    <!--
+        Make an invisible table in order to properly center the two tables within it
+    -->
+    <table align="center"><tr style="background-color: transparent;"><td style="border: none;">
+        <h3 id="bare-text2" align="center" style="margin-top: 0px;">Summoner 1</h3>
+        <div>
+            <table id="table1" class="table">
+                <tr><th>Win Rate<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>KDA<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Gold<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>CS<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Max Kills<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Max Deaths<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Average DMG Dealt<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Average DMG Taken<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Double Kills<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Triple Kills<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Quadra Kills<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Penta Kills<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tbody id="myTable"></tbody>
+            </table>
+        </div>
+    </td><td style="border: none;">
+        <div>
+            <h3 id="bare-text3" align="center" style="margin-top: 0px;">Summoner 2</h3>
+            <table id="table2" class="table">
+                <tr><th>Win Rate<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>KDA<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Gold<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>CS<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Max Kills<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Max Deaths<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Average DMG Dealt<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Average DMG Taken<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Double Kills<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Triple Kills<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Quadra Kills<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tr><th>Penta Kills<img src="../pictures/gray-bar.png" class="table-pic"></img></th><td></td></tr>
+                <tbody id="myTable2"></tbody>
+            </table>
+        </div>
+    </td></tr></table>
+
+    <script>
+        document.getElementById('season-11-comp').onclick =  function season11_pop_comp(){set_other_colors('11', '-comp');complete_comp_func('11');}
+        document.getElementById('season-10-comp').onclick =  function season10_pop_comp(){set_other_colors('10', '-comp');complete_comp_func('10');}
+        document.getElementById('season-9-comp').onclick =  function season9_pop_comp(){set_other_colors('9', '-comp');complete_comp_func('9');}
+        document.getElementById('season-8-comp').onclick =  function season8_pop_comp(){set_other_colors('8', '-comp');complete_comp_func('8');}
+        document.getElementById('season-7-comp').onclick =  function season7_pop_comp(){set_other_colors('7', '-comp');complete_comp_func('7');}
+        document.getElementById('season-6-comp').onclick =  function season6_pop_comp(){set_other_colors('6', '-comp');complete_comp_func('6');}
+        document.getElementById('season-5-comp').onclick =  function season5_pop_comp(){set_other_colors('5', '-comp');complete_comp_func('5');}
+        document.getElementById('season-4-comp').onclick =  function season4_pop_comp(){set_other_colors('4', '-comp');complete_comp_func('4');}
+        document.getElementById('season-3-comp').onclick =  function season3_pop_comp(){set_other_colors('3', '-comp');complete_comp_func('3');}
+        document.getElementById('season-2-comp').onclick =  function season2_pop_comp(){set_other_colors('2', '-comp');complete_comp_func('2');}
+        document.getElementById('season-1-comp').onclick =  function season1_pop_comp(){set_other_colors('1', '-comp');complete_comp_func('1');}
+    </script>
+    <script src="../app.js"></script>
+    <script src="../bundle.js"></script>
+    <footer>
+    </footer>
+
+</body>
+</html>
