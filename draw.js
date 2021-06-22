@@ -29,8 +29,8 @@ document.getElementById('newCanvas').appendChild(drawCanvas);
 */
 function scroll_func(opt){
   
-  console.log(opt.offsetX, canvas.width);
-  console.log(opt.offsetY, canvas.height);
+  //console.log(opt.offsetX, canvas.width);
+  //console.log(opt.offsetY, canvas.height);
   /*console.log("zoom");
 
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.width);
@@ -55,7 +55,9 @@ function start(e){
 
 function draw({clientX: x, clientY: y}){
   //console.log(x, y);
-  y = y - ctx.canvas.offsetTop;
+  var bounds = canvas.getBoundingClientRect();
+  //console.log(bounds);
+  y = y - bounds.y;
   x = x - ctx.canvas.offsetLeft;
   if (!isDrawing) return;
   ctx.lineWidth = stroke_weight.value;
@@ -121,7 +123,6 @@ container.addEventListener("mouseup", dragEnd, false);
 container.addEventListener("mousemove", drag, false);
 
 function dragStart(e) {
-  console.log("top dragStart");
   if (e.type === "touchstart") {
     initialX = e.touches[0].clientX - xOffset;
     initialY = e.touches[0].clientY - yOffset;
@@ -136,7 +137,6 @@ function dragStart(e) {
 }
 
 function dragEnd(e) {
-  console.log("top dragEnd");
   initialX = currentX;
   initialY = currentY;
 
@@ -144,7 +144,6 @@ function dragEnd(e) {
 }
 
 function drag(e) {
-  console.log("top drag");
   if (active) {
   
     e.preventDefault();
@@ -165,6 +164,5 @@ function drag(e) {
 }
 
 function setTranslate(xPos, yPos, el) {
-  console.log("translate3d(" + xPos + "px, " + yPos + "px, 0)");
   el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
 }
