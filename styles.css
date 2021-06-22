@@ -562,7 +562,6 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1;
 }
 #container{
     position: absolute;
@@ -576,10 +575,9 @@ canvas {
     overflow: hidden;
     border-radius: 7px;
     touch-action: none;
-    z-index: -1;
+    z-index: 0;
 }
 #item{
-    position: relative;
     width: 40px;
     height: 40px;
     background-color: rgb(245, 230, 99);
@@ -589,6 +587,7 @@ canvas {
     touch-action: none;
     user-select: none;
     z-index: 1000;
+    position: absolute;
 }
 #item:active{
     background-color: rgba(168, 218, 220, 1.00);
