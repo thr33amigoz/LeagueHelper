@@ -544,7 +544,7 @@ tr:hover{
     float: right;
     padding-left: 5px;
 }
-canvas {
+canvas{
     /*width: 1200px;*/
     /*min-height: 900px;*/
     position: relative;
@@ -651,13 +651,14 @@ canvas {
     left: 0;
     bottom: 0;
     width: 50px;
+    height: 905px;
     background: #171717;
 }
 .main-draw section{
     display: block;
     margin: 15px auto;
     width: 30px;
-    height: 30px
+    height: 30px;
 }
 .main-draw .colors{
     /*background: #171717;*/

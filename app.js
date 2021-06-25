@@ -20,6 +20,9 @@ window.onload = function(){
         if (document.baseURI.includes("compare-stats")){
             darkenCompareStats();
         }
+        if (document.baseURI.includes("map")){
+            darkenMap();
+        }
     }
 
     /*
@@ -462,6 +465,79 @@ function darkModeCompareStats(){
         lightenCompareStats();
     }
 }
+function darkModeMap(){
+    console.log("darkModeMap", localStorage.getItem("checked"));
+    if (localStorage.getItem("checked") == "0"){
+        darkenMap();
+    }
+    else{
+        lightenMap();
+    }
+}
+
+function darkenMap(){
+    console.log("top of darkenMap");
+    var checkBox = document.getElementById("darkModeCheck");
+
+    // Set the flag for dark mode being activated
+    localStorage.setItem("checked", "1");
+    checkBox.checked = true;
+    // Set the general background color to gray
+    document.getElementById("body-id").style.backgroundColor = "rgb(40, 40, 40)";
+
+    // Change nav-bar text color to black
+    var listElements = document.getElementsByClassName("nav-text");
+    var i;
+    for (i = 0; i < listElements.length; i++){
+        listElements[i].style.color = "rgb(21, 21, 21)";
+    }
+    
+    // Change nav-bar color to a darker color
+    document.getElementById("nav-bar").style.backgroundColor = "rgb(141, 24, 24)";
+
+    // Change hover colors to maroon
+    document.getElementById("list-text1").classList.add('dark-list-hover');
+    document.getElementById("list-text2").classList.add('dark-list-hover');
+    document.getElementById("list-text3").classList.add('dark-list-hover');
+    document.getElementById("list-text4").classList.add('dark-list-hover');
+    document.getElementById("list-text5").classList.add('dark-list-hover');
+
+    // Change the settings wheel color
+    document.getElementById("dropdown-image").classList.add("dropdown-button-dark");
+}
+
+function lightenMap(){
+    console.log("top of lightenMap");
+
+    var checkBox = document.getElementById("darkModeCheck");
+
+    // Set the flag for dark mode being deactivated
+    localStorage.setItem("checked", "0");
+    checkBox.checked = false;
+    // Reset the general background color
+    document.getElementById("body-id").style.backgroundColor = "rgb(246, 246, 242)";
+
+    // Reset nav-bar text color
+    var listElements = document.getElementsByClassName("nav-text");
+    var i;
+    for (i = 0; i < listElements.length; i++){
+        listElements[i].style.color = "rgb(38, 80, 87)";
+    }
+
+    // Reset nav-bar color
+    document.getElementById("nav-bar").style.backgroundColor = "rgb(186, 223, 231)";
+    
+    // Reset hover colors
+    document.getElementById("list-text1").classList.remove('dark-list-hover');
+    document.getElementById("list-text2").classList.remove('dark-list-hover');
+    document.getElementById("list-text3").classList.remove('dark-list-hover');
+    document.getElementById("list-text4").classList.remove('dark-list-hover');
+    document.getElementById("list-text5").classList.remove('dark-list-hover');
+
+    // Change the settings wheel color
+    document.getElementById("dropdown-image").classList.remove("dropdown-button-dark");
+}
+
 function showDropdown(){
     document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -477,6 +553,7 @@ window.onclick = function(event){
         }
     }
 }
+
 /*
 *   COMPARISON
 */
