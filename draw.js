@@ -58,7 +58,7 @@ function draw({clientX: x, clientY: y}){
   var bounds = canvas.getBoundingClientRect();
   //console.log(bounds);
   y = y - bounds.y;
-  x = x - ctx.canvas.offsetLeft;
+  x = x - bounds.x;
   if (!isDrawing) return;
   ctx.lineWidth = stroke_weight.value;
   ctx.lineCap = "round";
@@ -93,13 +93,16 @@ resizeCanvas();
 
 function placeGreen(){
   var tag = document.createElement("div");
-  tag.id = "item";
+  tag.id = "item-green";
   var element = document.getElementById("container");
   element.appendChild(tag);
 }
 
 function placePink(){
-  
+  var tag = document.createElement("div");
+  tag.id = "item-pink";
+  var element = document.getElementById("container");
+  element.appendChild(tag);
 }
 
 
@@ -149,6 +152,13 @@ function dragStart(e) {
 }
 
 function dragEnd(e) {
+  console.log("X: ", activeItem.currentX);
+  console.log("Y: ", activeItem.currentY);
+
+  if (activeItem.currentX < -449 && activeItem.currentY < -291){
+    console.log("DELETE");
+    activeItem.remove();
+  }
   if (activeItem !== null) {
     activeItem.initialX = activeItem.currentX;
     activeItem.initialY = activeItem.currentY;
@@ -159,7 +169,15 @@ function dragEnd(e) {
 }
 
 function drag(e) {
+
   if (active) {
+
+    // Don't drag if it is the map
+    if (activeItem.id == "map-canvas" || activeItem.id == "square"){
+      console.log(activeItem.id);
+      return;
+    }
+
     if (e.type === "touchmove") {
       e.preventDefault();
 

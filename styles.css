@@ -577,28 +577,63 @@ canvas {
     touch-action: none;
     z-index: 0;
 }
-#item{
+#item-green{
     width: 40px;
     height: 40px;
-    background-color: rgb(245, 230, 99);
+    background-color: rgb(72, 196, 78);
     /*border: 10px solid rgba(136, 136, 136, .1);*/
-    box-shadow: 0px 0px 0px 35px rgba(245, 230, 99, .5);
+    box-shadow: 0px 0px 0px 35px rgba(72, 196, 78, .5);
     border-radius: 50%;
     touch-action: none;
     user-select: none;
     z-index: 1000;
     position: absolute;
 }
-#item:active{
-    background-color: rgba(168, 218, 220, 1.00);
-    box-shadow: 0px 0px 0px 35px rgba(168, 218, 220, .5);
+#item-green:active{
+    background-color: rgb(67, 182, 73);
+    box-shadow: 0px 0px 0px 35px rgba(72, 196, 78, .5);
 }
-#item:hover{
+#item-green:hover{
+    cursor: pointer;
+    border-width: 20px;
+}
+#item-pink{
+    width: 40px;
+    height: 40px;
+    background-color: rgb(235, 91, 215);
+    /*border: 10px solid rgba(136, 136, 136, .1);*/
+    box-shadow: 0px 0px 0px 35px rgba(235, 91, 215, .5);
+    border-radius: 50%;
+    touch-action: none;
+    user-select: none;
+    z-index: 1000;
+    position: absolute;
+}
+#item-pink:active{
+    background-color: rgb(233, 72, 211, 1.00);
+    box-shadow: 0px 0px 0px 35px rgba(235, 91, 215, .5);
+}
+#item-pink:hover{
     cursor: pointer;
     border-width: 20px;
 }
 
-
+#square{
+    position: absolute;
+    top: 6px;
+    left: 0px;
+    width: 150px;
+    height: 150px;
+    background-image: url('../pictures/trash-can.png');
+    background-size: contain;
+    background-color: rgba(92, 92, 92, 0.5);
+    border-right: 4px solid rgba(40, 40, 40, 0.5);
+    border-bottom: 4px solid rgba(40, 40, 40, 0.5);
+    z-index: 2000;
+}
+#square:hover{
+    background-color: rgba(75, 75, 75, 0.5);
+}
 /*
     Art thing
 */
