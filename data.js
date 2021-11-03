@@ -1,6 +1,6 @@
 module.exports = {url_func1: url_gather1, url_func2: url_gather2, data_func1: data_gather1, data_func2: data_gather2, 
-                    comb_table_func1: table_populate1, comb_table_func2: table_populate2, cumulative_table_func1: cumulative_table1,
-                    cumulative_table_func2: cumulative_table2}
+    comb_table_func1: table_populate1, comb_table_func2: table_populate2, combined_table_func1: combined_table1,
+    combined_table_func2: combined_table2, champ_func: gather_champs}
 
 function url_gather1(ret_func, url, season, purpose){
     const request = require('request')
@@ -9,50 +9,50 @@ function url_gather1(ret_func, url, season, purpose){
         response,
         body
     ){
-        var index = body.search('data-summoner-id=')
-        var string = body.slice(index + 'data-summoner-id='.length, index + 40)
-        
-        var counter = 0;
-        var id = "";
-        // Gather the ID of the user, based on the provided link
-        for (i = 0; i < 40; i++){
-            if (counter === 2){
-                break;
-            }
-            if (string.charAt(i) === '"'){
-                counter++;
-            }
-            else{
-                id += string.charAt(i);
-            }
-        }
+    var index = body.search('data-summoner-id=')
+    var string = body.slice(index + 'data-summoner-id='.length, index + 40)
 
-        var url = "";
-        switch(season){
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-                url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=' + season;
-                break;
-            case '8':
-                url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=11';
-                break;
-            case '9':
-                url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=13';
-                break;
-            case '10':
-                url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=15';
-                break;
-            case '11':
-                url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=17';
-                break;
+    var counter = 0;
+    var id = "";
+    // Gather the ID of the user, based on the provided link
+    for (i = 0; i < 40; i++){
+        if (counter === 2){
+            break;
         }
+        if (string.charAt(i) === '"'){
+            counter++;
+        }
+        else{
+            id += string.charAt(i);
+        }
+    }
 
-        return ret_func(url, purpose);
+    var url = "";
+    switch(season){
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+            url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=' + season;
+            break;
+        case '8':
+            url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=11';
+            break;
+        case '9':
+            url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=13';
+            break;
+        case '10':
+            url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=15';
+            break;
+        case '11':
+            url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=17';
+            break;
+    }
+
+    return ret_func(url, purpose);
     });
 }
 
@@ -63,54 +63,54 @@ function url_gather2(ret_func, url, season, purpose){
         response,
         body
     ){
-        var index = body.search('data-summoner-id=')
-        var string = body.slice(index + 'data-summoner-id='.length, index + 40)
-        
-        var counter = 0;
-        var id = "";
-        // Gather the ID of the user, based on the provided link
-        for (i = 0; i < 40; i++){
-            if (counter === 2){
-                break;
-            }
-            if (string.charAt(i) === '"'){
-                counter++;
-            }
-            else{
-                id += string.charAt(i);
-            }
-        }
+    var index = body.search('data-summoner-id=')
+    var string = body.slice(index + 'data-summoner-id='.length, index + 40)
 
-        var url = "";
-        switch(season){
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-                url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=' + season;
-                break;
-            case '8':
-                url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=11';
-                break;
-            case '9':
-                url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=13';
-                break;
-            case '10':
-                url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=15';
-                break;
-            case '11':
-                url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=17';
-                break;
+    var counter = 0;
+    var id = "";
+    // Gather the ID of the user, based on the provided link
+    for (i = 0; i < 40; i++){
+        if (counter === 2){
+            break;
         }
+        if (string.charAt(i) === '"'){
+            counter++;
+        }
+        else{
+            id += string.charAt(i);
+        }
+    }
 
-        return ret_func(url, purpose);
+    var url = "";
+    switch(season){
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+            url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=' + season;
+            break;
+        case '8':
+            url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=11';
+            break;
+        case '9':
+            url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=13';
+            break;
+        case '10':
+            url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=15';
+            break;
+        case '11':
+            url = 'https://na.op.gg/summoner/champions/ajax/champions.rank/summonerId=' + id + '&season=17';
+            break;
+    }
+
+    return ret_func(url, purpose);
     });
 }
 
-function data_gather1(ret_func, url, champ){
+function data_gather1(ret_func, error_func, url, champ){
     const request = require('request')
     request(url, function (
         error,
@@ -118,11 +118,20 @@ function data_gather1(ret_func, url, champ){
         body
     ){
         champ = champ.replace("'", "&#039;");
+
+        // Does this account exist?
+        var exist = body.indexOf('404 Not Found');
+        if (exist != -1){
+            console.log("this account does not exist");
+            error_func(1);
+        }
+
+        champ = champ.replace("'", "&#039;");
         // Locate this champions info
         var pos_champ = body.indexOf(`data-value=\"${champ}\"`);
         if (pos_champ < 0){
             var arr = ['0% (0W/0L)', '0', '0', '0 (0.0)', '0', '0', '0', '0', '0',
-                        '0', '0', '0'];
+                    '0', '0', '0'];
             return ret_func(arr);
         }
         champ_substr = body.substr(pos_champ, 1500);
@@ -145,9 +154,9 @@ function data_gather1(ret_func, url, champ){
         var pos_kda = champ_substr.indexOf("KDA Cell");
         var kda = champ_substr.substr(pos_kda, 40).match('[+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)')[0];
         /* 
-            Store the elements falling under a "Value Cell"
-                * Gold, CS, Max Kills, Max Deaths, Average DMG Dealt/Taken,
-                * Double/Triple/Quadra/Penta Kills.
+        Store the elements falling under a "Value Cell"
+        * Gold, CS, Max Kills, Max Deaths, Average DMG Dealt/Taken,
+        * Double/Triple/Quadra/Penta Kills.
         */
         var pos_rank = champ_substr.indexOf("Rank Cell");
         var pos_value = champ_substr.indexOf("<td class=\"Value Cell\">");
@@ -185,12 +194,12 @@ function data_gather1(ret_func, url, champ){
         winrate += " (" + wins + "/" + losses + ")";
 
         arr = [winrate, kda, value[0], value[1], value[2], value[3], value[4], 
-                value[5], value[6], value[7], value[8], value[9]];
+        value[5], value[6], value[7], value[8], value[9]];
         return ret_func(arr);
     });
 }
 
-function data_gather2(ret_func, url, champ){
+function data_gather2(ret_func, error_func, url, champ){
     const request = require('request')
     request(url, function (
         error,
@@ -198,11 +207,19 @@ function data_gather2(ret_func, url, champ){
         body
     ){
         champ = champ.replace("'", "&#039;");
+
+        // Does this account exist?
+        var exist = body.indexOf("404 Not Found");
+        if (exist != -1){
+            console.log("this account does not exist");
+            error_func(2);
+        }
+
         // Locate this champions info
         var pos_champ = body.indexOf(`data-value=\"${champ}\"`);
         if (pos_champ < 0){
             var arr = ['0% (0W/0L)', '0', '0', '0 (0.0)', '0', '0', '0', '0', '0',
-                        '0', '0', '0'];
+                    '0', '0', '0'];
             return ret_func(arr);
         }
         champ_substr = body.substr(pos_champ, 1500);
@@ -225,9 +242,9 @@ function data_gather2(ret_func, url, champ){
         var pos_kda = champ_substr.indexOf("KDA Cell");
         var kda = champ_substr.substr(pos_kda, 40).match('[+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)')[0];
         /* 
-            Store the elements falling under a "Value Cell"
-                * Gold, CS, Max Kills, Max Deaths, Average DMG Dealt/Taken,
-                * Double/Triple/Quadra/Penta Kills.
+        Store the elements falling under a "Value Cell"
+        * Gold, CS, Max Kills, Max Deaths, Average DMG Dealt/Taken,
+        * Double/Triple/Quadra/Penta Kills.
         */
         var pos_rank = champ_substr.indexOf("Rank Cell");
         var pos_value = champ_substr.indexOf("<td class=\"Value Cell\">");
@@ -264,11 +281,10 @@ function data_gather2(ret_func, url, champ){
         winrate += " (" + wins + "/" + losses + ")";
 
         arr = [winrate, kda, value[0], value[1], value[2], value[3], value[4], 
-                value[5], value[6], value[7], value[8], value[9]];
+        value[5], value[6], value[7], value[8], value[9]];
         return ret_func(arr);
     });
 }
-
 function table_populate1(data){    
     // Insert data into the first table (left)
     var tds = document.querySelectorAll('#table1 tbody td');
@@ -284,13 +300,13 @@ function table_populate2(data){
     }
 }
 
-function cumulative_table1(data){
+function combined_table1(data){
     // Insert data into the second table (right)
-    var tds = document.querySelectorAll('#cumulative-table tbody td');
+    var tds = document.querySelectorAll('#combined-table tbody td');
     console.log(tds[0].textContent);
     if (tds[0].textContent == ""){
         for (var i = 0; i < data.length; i++){
-            tds[i].textContent = data[i];
+        tds[i].textContent = data[i];
         }
     }
     else{
@@ -302,9 +318,9 @@ function cumulative_table1(data){
     }
 }
 
-function cumulative_table2(data){
+function combined_table2(data){
     // Insert data into the second table (right)
-    var tds = document.querySelectorAll('#cumulative-table tbody td');
+    var tds = document.querySelectorAll('#combined-table tbody td');
     console.log(tds[0].textContent);
     if (tds[0].textContent == ""){
         for (var i = 0; i < data.length; i++){
@@ -335,9 +351,9 @@ function data_combine(data1, data2, table){
     // Win Rate
     var winrate = (parseInt(data2[0].split("% ")[0]) + parseInt(data1[0].split("% ")[0])) / 2;
     var wins = parseInt(data2[0].split("% ")[1].split("/")[0].match(/\d+/)[0]) + 
-                parseInt(data1[0].split("% ")[1].split("/")[0].match(/\d+/)[0]);
+    parseInt(data1[0].split("% ")[1].split("/")[0].match(/\d+/)[0]);
     var losses = parseInt(data2[0].split("% ")[1].split("/")[1].match(/\d+/)[0]) + 
-                parseInt(data1[0].split("% ")[1].split("/")[1].match(/\d+/)[0]);
+    parseInt(data1[0].split("% ")[1].split("/")[1].match(/\d+/)[0]);
     var winrate_final = winrate + "% (" + wins + "W/" + losses + "L)";
 
     // KDA
@@ -381,7 +397,7 @@ function data_combine(data1, data2, table){
     // Double/triple/quadra/penta kills
     var double = (parseInt(data1[8].replace(',', '')) + parseInt(data2[8].replace(',', '')));
     double = double.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    
+
     var triple = (parseInt(data1[9].replace(',', '')) + parseInt(data2[9].replace(',', '')));
     triple = triple.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
@@ -392,4 +408,12 @@ function data_combine(data1, data2, table){
     penta = penta.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     return table_combined([winrate_final, kda, gold, cs_final, kills, deaths, dmg_dealt, dmg_taken, double, triple, quadra, penta], table);
+}
+
+/*
+*   Return a list of all champions in League of Legends.
+*/
+function gather_champs(ret_func, champ){
+    var myFunc = require('./node_modules/lol-champions');
+    return ret_func(myFunc, champ);
 }

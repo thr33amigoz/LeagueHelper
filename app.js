@@ -1,561 +1,5 @@
 /*
-*   DARK MODE/DROPDOWN BUTTON FUNCTIONALITY
-*/
-
-window.onload = function(){
-    //localStorage.setItem("checked", "0");
-    var checkBox = document.getElementById("darkModeCheck");
-    console.log("onload: ", localStorage.getItem("checked"));
-    console.log(checkBox.checked);
-    //checkBox.checked = true;
-    if (localStorage.getItem("checked") == "1"){
-        checkBox.checked = true;
-        //checkBox.classList.add("mine:checked:after");
-        if (document.baseURI.includes("index")){
-            darkenIndex();
-        }
-        if (document.baseURI.includes("cumulative-stats")){
-            darkenCumulativeStats();
-        }
-        if (document.baseURI.includes("compare-stats")){
-            darkenCompareStats();
-        }
-        if (document.baseURI.includes("map")){
-            darkenMap();
-        }
-    }
-
-    /*
-    console.log(document.baseURI);
-    var checkBox = document.getElementById("darkModeCheck");
-    if (document.baseURI.includes("index")){
-        darkModeIndex();
-    }
-    if (document.baseURI.includes("cumulative-stats")){
-        darkModeCumulativeStats();
-    }
-    */
-}
-function darkenIndex(){
-    var checkBox = document.getElementById("darkModeCheck");
-    // Set the flag for dark mode being activated
-    localStorage.setItem("checked", "1");
-    checkBox.checked = true;
-    // Set the general background color to gray
-    document.getElementById("body-id").style.backgroundColor = "rgb(40, 40, 40)";
-
-    // Change nav-bar text color to black
-    var listElements = document.getElementsByClassName("nav-text");
-    var i;
-    for (i = 0; i < listElements.length; i++){
-        listElements[i].style.color = "rgb(21, 21, 21)";
-    }
-    
-    // Change nav-bar color to a darker color
-    document.getElementById("nav-bar").style.backgroundColor = "rgb(141, 24, 24)";
-
-    // Change hover colors to maroon
-    document.getElementById("list-text1").classList.add('dark-list-hover');
-    document.getElementById("list-text2").classList.add('dark-list-hover');
-    document.getElementById("list-text3").classList.add('dark-list-hover');
-    document.getElementById("list-text4").classList.add('dark-list-hover');
-    document.getElementById("list-text5").classList.add('dark-list-hover');
-
-    // Change home page images to a darker theme
-    document.getElementById("img1").classList.add('dark-image-1');
-    document.getElementById("img2").classList.add('dark-image-2');
-    document.getElementById("img3").classList.add('dark-image-3');
-    document.getElementById("img4").classList.add('dark-image-4');
-    document.getElementById("img5").classList.add('dark-image-5');
-    
-    // Change the settings wheel color
-    document.getElementById("dropdown-image").classList.add("dropdown-button-dark");
-
-    // Change the main menu text
-    document.getElementById("league-title").classList.add("dark-main-title");
-
-    // Change button colors
-    document.getElementById("cumulative-stat-id").classList.add("dark-button");
-    document.getElementById("compare-stat-id").classList.add("dark-button");
-    document.getElementById("map-id").classList.add("dark-button");
-    document.getElementById("contact-id").classList.add("dark-button");
-}
-function lightenIndex(){
-    var checkBox = document.getElementById("darkModeCheck");
-
-    // Set the flag for dark mode being deactivated
-    localStorage.setItem("checked", "0");
-    checkBox.checked = false;
-    // Reset the general background color
-    document.getElementById("body-id").style.backgroundColor = "rgb(246, 246, 242)";
-
-    // Reset nav-bar text color
-    var listElements = document.getElementsByClassName("nav-text");
-    var i;
-    for (i = 0; i < listElements.length; i++){
-        listElements[i].style.color = "rgb(38, 80, 87)";
-    }
-
-    // Reset nav-bar color
-    document.getElementById("nav-bar").style.backgroundColor = "rgb(186, 223, 231)";
-    
-    // Reset hover colors
-    document.getElementById("list-text1").classList.remove('dark-list-hover');
-    document.getElementById("list-text2").classList.remove('dark-list-hover');
-    document.getElementById("list-text3").classList.remove('dark-list-hover');
-    document.getElementById("list-text4").classList.remove('dark-list-hover');
-    document.getElementById("list-text5").classList.remove('dark-list-hover');
-
-    // Reset the home page images
-    document.getElementById("img1").classList.remove('dark-image-1');
-    document.getElementById("img2").classList.remove('dark-image-2');
-    document.getElementById("img3").classList.remove('dark-image-3');
-    document.getElementById("img4").classList.remove('dark-image-4');
-    document.getElementById("img5").classList.remove('dark-image-5');
-
-    // Reset the settings wheel color
-    document.getElementById("dropdown-image").classList.remove("dropdown-button-dark");
-
-    // Reset the main menu text color
-    document.getElementById("league-title").classList.remove("dark-main-title");
-
-    // Reset the button colors
-    document.getElementById("cumulative-stat-id").classList.remove("dark-button");
-    document.getElementById("compare-stat-id").classList.remove("dark-button");
-    document.getElementById("map-id").classList.remove("dark-button");
-    document.getElementById("contact-id").classList.remove("dark-button");
-}
-function darkModeIndex(){
-    console.log(localStorage.getItem("checked"));
-
-    var checkBox = document.getElementById("darkModeCheck");
-    console.log(checkBox.checked);
-    
-    if (localStorage.getItem("checked") == "0"){
-        darkenIndex();
-    }
-    else{
-        lightenIndex();
-    }
-}
-function darkenCumulativeStats(){
-
-    var checkBox = document.getElementById("darkModeCheck");
-
-    // Set the flag for dark mode being activated
-    localStorage.setItem("checked", "1");
-    checkBox.checked = true;
-    // Set the general background color to gray
-    document.getElementById("body-id").style.backgroundColor = "rgb(40, 40, 40)";
-
-    // Change nav-bar text color to black
-    var listElements = document.getElementsByClassName("nav-text");
-    var i;
-    for (i = 0; i < listElements.length; i++){
-        listElements[i].style.color = "rgb(21, 21, 21)";
-    }
-    
-    // Change nav-bar color to a darker color
-    document.getElementById("nav-bar").style.backgroundColor = "rgb(141, 24, 24)";
-
-    // Change hover colors to maroon
-    document.getElementById("list-text1").classList.add('dark-list-hover');
-    document.getElementById("list-text2").classList.add('dark-list-hover');
-    document.getElementById("list-text3").classList.add('dark-list-hover');
-    document.getElementById("list-text4").classList.add('dark-list-hover');
-    document.getElementById("list-text5").classList.add('dark-list-hover');
-
-    // Change top image to a darker theme
-    document.getElementById("img6").classList.add('dark-image-6');
-
-    // Change the settings wheel color
-    document.getElementById("dropdown-image").classList.add("dropdown-button-dark");
-
-    // Change the main menu text
-    document.getElementById("league-title").classList.add("dark-main-title");
-
-    // Darken season scroll bar
-    document.getElementById("scroll-id").classList.add("dark-scroll");
-
-    // Darken table
-    document.getElementById("cumulative-table").classList.add("dark-table");
-
-    document.getElementById("bare-text1").classList.add("light-text");
-    document.getElementById("bare-text2").classList.add("light-text");
-
-    console.log("dark: ", document.getElementsByClassName("green-scroll"));
-
-    // Change the hover color for the current season, if it exists
-    if (document.getElementsByClassName("green-scroll").length != 0){
-        //document.getElementsByClassName("green-scroll")[0].style.backgroundColor = "rgb(119, 0, 0)";
-        document.getElementsByClassName("green-scroll")[0].classList.add("red-scroll");
-        document.getElementsByClassName("green-scroll")[0].classList.remove("green-scroll");
-    }
-
-    var images1 = document.querySelectorAll('#table1 tbody tr th img');
-    var images2 = document.querySelectorAll('#table2 tbody tr th img');
-    
-    for (i = 0; i < images1.length; i++){
-        console.log(images1[i].src);
-        if (images1[i].src.includes("up-arrow")){
-            images1[i].src = "../pictures/dark-mode-up-arrow.png";
-            //console.log(images1[i].src);
-        }
-        if (images1[i].src.includes("down-arrow")){
-            images1[i].src = "../pictures/dark-mode-down-arrow.png";
-            //console.log(images1[i].src);
-        }
-        if (images2[i].src.includes("up-arrow")){
-            images2[i].src = "../pictures/dark-mode-up-arrow.png";
-            //console.log(images2[i].src);
-        }
-        if (images2[i].src.includes("down-arrow")){
-            images2[i].src = "../pictures/dark-mode-down-arrow.png";
-            //console.log(images2[i].src);
-        }
-    }
-}
-function lightenCumulativeStats(){
-    var checkBox = document.getElementById("darkModeCheck");
-
-    // Set the flag for dark mode being deactivated
-    localStorage.setItem("checked", "0");
-    checkBox.checked = false;
-    // Reset the general background color
-    document.getElementById("body-id").style.backgroundColor = "rgb(246, 246, 242)";
-
-    // Reset nav-bar text color
-    var listElements = document.getElementsByClassName("nav-text");
-    var i;
-    for (i = 0; i < listElements.length; i++){
-        listElements[i].style.color = "rgb(38, 80, 87)";
-    }
-
-    // Reset nav-bar color
-    document.getElementById("nav-bar").style.backgroundColor = "rgb(186, 223, 231)";
-    
-    // Reset hover colors
-    document.getElementById("list-text1").classList.remove('dark-list-hover');
-    document.getElementById("list-text2").classList.remove('dark-list-hover');
-    document.getElementById("list-text3").classList.remove('dark-list-hover');
-    document.getElementById("list-text4").classList.remove('dark-list-hover');
-    document.getElementById("list-text5").classList.remove('dark-list-hover');
-
-    // Reset top image
-    document.getElementById("img6").classList.remove('dark-image-6');
-
-    // Reset the settings wheel color
-    document.getElementById("dropdown-image").classList.remove("dropdown-button-dark");
-
-    // Reset the large title text
-    document.getElementById("league-title").classList.remove("dark-main-title");
-
-    // Reset season scroll bar color
-    document.getElementById("scroll-id").classList.remove("dark-scroll");
-
-    // Reset table color
-    document.getElementById("cumulative-table").classList.remove("dark-table");
-
-    // Reset text colors
-    document.getElementById("bare-text1").classList.remove("light-text");
-    document.getElementById("bare-text2").classList.remove("light-text");
-
-    console.log("light: ", document.getElementsByClassName("red-scroll"));
-    // Reset the hover color for the current season, if it exists
-    if (document.getElementsByClassName("red-scroll").length != 0){
-        //document.getElementsByClassName("red-scroll")[0].style.backgroundColor = "rgb(194, 237, 206)";
-        document.getElementsByClassName("red-scroll")[0].classList.add("green-scroll");
-        document.getElementsByClassName("red-scroll")[0].classList.remove("red-scroll");
-    }
-
-    var images1 = document.querySelectorAll('#table1 tbody tr th img');
-    var images2 = document.querySelectorAll('#table2 tbody tr th img');
-
-    for (i = 0; i < images1.length; i++){
-        console.log(images1[i].src);
-        if (images1[i].src.includes("up-arrow")){
-            images1[i].src = "../pictures/up-arrow.png";
-            //console.log(images1[i].src);
-        }
-        if (images1[i].src.includes("down-arrow")){
-            images1[i].src = "../pictures/down-arrow.png";
-            //console.log(images1[i].src);
-        }
-        if (images2[i].src.includes("up-arrow")){
-            images2[i].src = "../pictures/up-arrow.png";
-            //console.log(images2[i].src);
-        }
-        if (images2[i].src.includes("down-arrow")){
-            images2[i].src = "../pictures/down-arrow.png";
-            //console.log(images2[i].src);
-        }
-    }
-}
-function darkModeCumulativeStats(){
-
-    //reset_scroll_colors("-cumulative");
-
-    var checkBox = document.getElementById("darkModeCheck");
-    console.log("cumulative stat: ", localStorage.getItem("checked"));
-    if (localStorage.getItem("checked") == "0"){
-        darkenCumulativeStats();
-    }
-    else{
-        lightenCumulativeStats();
-    }
-}
-function darkenCompareStats(){
-    console.log("top of darkenCompareStats");
-    var checkBox = document.getElementById("darkModeCheck");
-
-    // Set the flag for dark mode being activated
-    localStorage.setItem("checked", "1");
-    checkBox.checked = true;
-    // Set the general background color to gray
-    document.getElementById("body-id").style.backgroundColor = "rgb(40, 40, 40)";
-
-    // Change nav-bar text color to black
-    var listElements = document.getElementsByClassName("nav-text");
-    var i;
-    for (i = 0; i < listElements.length; i++){
-        listElements[i].style.color = "rgb(21, 21, 21)";
-    }
-    
-    // Change nav-bar color to a darker color
-    document.getElementById("nav-bar").style.backgroundColor = "rgb(141, 24, 24)";
-
-    // Change hover colors to maroon
-    document.getElementById("list-text1").classList.add('dark-list-hover');
-    document.getElementById("list-text2").classList.add('dark-list-hover');
-    document.getElementById("list-text3").classList.add('dark-list-hover');
-    document.getElementById("list-text4").classList.add('dark-list-hover');
-    document.getElementById("list-text5").classList.add('dark-list-hover');
-
-    // Change top image to a darker theme
-    document.getElementById("img7").classList.add('dark-image-7');
-
-    // Change the settings wheel color
-    document.getElementById("dropdown-image").classList.add("dropdown-button-dark");
-
-    // Change the main menu text
-    document.getElementById("league-title").classList.add("dark-main-title");
-
-    // Darken season scroll bar
-    document.getElementById("scroll-id").classList.add("dark-scroll");
-
-    // Darken table
-    document.getElementById("table1").classList.add("dark-table");
-    document.getElementById("table2").classList.add("dark-table");
-
-    // Change the bare text (lying on background) colors to gray
-    document.getElementById("bare-text1").classList.add("light-text");
-    document.getElementById("bare-text2").classList.add("light-text");
-    document.getElementById("bare-text3").classList.add("light-text");
-
-    // Change the hover color for the current season, if it exists
-    if (document.getElementsByClassName("green-scroll").length != 0){
-        //document.getElementsByClassName("green-scroll")[0].style.backgroundColor = "rgb(119, 0, 0)";
-        document.getElementsByClassName("green-scroll")[0].classList.add("red-scroll");
-        document.getElementsByClassName("green-scroll")[0].classList.remove("green-scroll");
-    }
-    
-    var images1 = document.querySelectorAll('#table1 tbody tr th img');
-    var images2 = document.querySelectorAll('#table2 tbody tr th img');
-
-    for (i = 0; i < images1.length; i++){
-        console.log(images1[i].src);
-        if (images1[i].src.includes("up-arrow")){
-            images1[i].src = "../pictures/dark-mode-up-arrow.png";
-        }
-        if (images1[i].src.includes("down-arrow")){
-            images1[i].src = "../pictures/dark-mode-down-arrow.png";
-        }
-        if (images2[i].src.includes("up-arrow")){
-            images2[i].src = "../pictures/dark-mode-up-arrow.png";
-        }
-        if (images2[i].src.includes("down-arrow")){
-            images2[i].src = "../pictures/dark-mode-down-arrow.png";
-        }
-    }
-}
-function lightenCompareStats(){
-    console.log("top of lightenCompareStats");
-
-    var checkBox = document.getElementById("darkModeCheck");
-
-    // Set the flag for dark mode being deactivated
-    localStorage.setItem("checked", "0");
-    checkBox.checked = false;
-    // Reset the general background color
-    document.getElementById("body-id").style.backgroundColor = "rgb(246, 246, 242)";
-
-    // Reset nav-bar text color
-    var listElements = document.getElementsByClassName("nav-text");
-    var i;
-    for (i = 0; i < listElements.length; i++){
-        listElements[i].style.color = "rgb(38, 80, 87)";
-    }
-
-    // Reset nav-bar color
-    document.getElementById("nav-bar").style.backgroundColor = "rgb(186, 223, 231)";
-    
-    // Reset hover colors
-    document.getElementById("list-text1").classList.remove('dark-list-hover');
-    document.getElementById("list-text2").classList.remove('dark-list-hover');
-    document.getElementById("list-text3").classList.remove('dark-list-hover');
-    document.getElementById("list-text4").classList.remove('dark-list-hover');
-    document.getElementById("list-text5").classList.remove('dark-list-hover');
-
-    // Reset top image
-    document.getElementById("img7").classList.remove('dark-image-7');
-
-    // Reset the settings wheel color
-    document.getElementById("dropdown-image").classList.remove("dropdown-button-dark");
-
-    // Reset the large title text
-    document.getElementById("league-title").classList.remove("dark-main-title");
-
-    // Reset season scroll bar color
-    document.getElementById("scroll-id").classList.remove("dark-scroll");
-
-    // Reset table color
-    document.getElementById("table1").classList.remove("dark-table");
-    document.getElementById("table2").classList.remove("dark-table");
-
-    // Reset text colors
-    document.getElementById("bare-text1").classList.remove("light-text");
-    document.getElementById("bare-text2").classList.remove("light-text");
-    document.getElementById("bare-text3").classList.remove("light-text");
-
-    // Reset the hover color for the current season, if it exists
-    if (document.getElementsByClassName("red-scroll").length != 0){
-        //document.getElementsByClassName("red-scroll")[0].style.backgroundColor = "rgb(194, 237, 206)";
-        document.getElementsByClassName("red-scroll")[0].classList.add("green-scroll");
-        document.getElementsByClassName("red-scroll")[0].classList.remove("red-scroll");
-    }
-
-    var images1 = document.querySelectorAll('#table1 tbody tr th img');
-    var images2 = document.querySelectorAll('#table2 tbody tr th img');
-
-    for (i = 0; i < images1.length; i++){
-        console.log(images1[i].src);
-        if (images1[i].src.includes("up-arrow")){
-            images1[i].src = "../pictures/up-arrow.png";
-        }
-        if (images1[i].src.includes("down-arrow")){
-            images1[i].src = "../pictures/down-arrow.png";
-        }
-        if (images2[i].src.includes("up-arrow")){
-            images2[i].src = "../pictures/up-arrow.png";
-        }
-        if (images2[i].src.includes("down-arrow")){
-            images2[i].src = "../pictures/down-arrow.png";
-        }
-    }
-}
-function darkModeCompareStats(){
-    console.log("inside darkModeCompareStats");
-    var checkBox = document.getElementById("darkModeCheck");
-    console.log("compare stats: ", localStorage.getItem("checked"));
-
-    if (localStorage.getItem("checked") == "0"){
-        darkenCompareStats();
-    }
-    else{
-        lightenCompareStats();
-    }
-}
-function darkModeMap(){
-    console.log("darkModeMap", localStorage.getItem("checked"));
-    if (localStorage.getItem("checked") == "0"){
-        darkenMap();
-    }
-    else{
-        lightenMap();
-    }
-}
-
-function darkenMap(){
-    console.log("top of darkenMap");
-    var checkBox = document.getElementById("darkModeCheck");
-
-    // Set the flag for dark mode being activated
-    localStorage.setItem("checked", "1");
-    checkBox.checked = true;
-    // Set the general background color to gray
-    document.getElementById("body-id").style.backgroundColor = "rgb(40, 40, 40)";
-
-    // Change nav-bar text color to black
-    var listElements = document.getElementsByClassName("nav-text");
-    var i;
-    for (i = 0; i < listElements.length; i++){
-        listElements[i].style.color = "rgb(21, 21, 21)";
-    }
-    
-    // Change nav-bar color to a darker color
-    document.getElementById("nav-bar").style.backgroundColor = "rgb(141, 24, 24)";
-
-    // Change hover colors to maroon
-    document.getElementById("list-text1").classList.add('dark-list-hover');
-    document.getElementById("list-text2").classList.add('dark-list-hover');
-    document.getElementById("list-text3").classList.add('dark-list-hover');
-    document.getElementById("list-text4").classList.add('dark-list-hover');
-    document.getElementById("list-text5").classList.add('dark-list-hover');
-
-    // Change the settings wheel color
-    document.getElementById("dropdown-image").classList.add("dropdown-button-dark");
-}
-
-function lightenMap(){
-    console.log("top of lightenMap");
-
-    var checkBox = document.getElementById("darkModeCheck");
-
-    // Set the flag for dark mode being deactivated
-    localStorage.setItem("checked", "0");
-    checkBox.checked = false;
-    // Reset the general background color
-    document.getElementById("body-id").style.backgroundColor = "rgb(246, 246, 242)";
-
-    // Reset nav-bar text color
-    var listElements = document.getElementsByClassName("nav-text");
-    var i;
-    for (i = 0; i < listElements.length; i++){
-        listElements[i].style.color = "rgb(38, 80, 87)";
-    }
-
-    // Reset nav-bar color
-    document.getElementById("nav-bar").style.backgroundColor = "rgb(186, 223, 231)";
-    
-    // Reset hover colors
-    document.getElementById("list-text1").classList.remove('dark-list-hover');
-    document.getElementById("list-text2").classList.remove('dark-list-hover');
-    document.getElementById("list-text3").classList.remove('dark-list-hover');
-    document.getElementById("list-text4").classList.remove('dark-list-hover');
-    document.getElementById("list-text5").classList.remove('dark-list-hover');
-
-    // Change the settings wheel color
-    document.getElementById("dropdown-image").classList.remove("dropdown-button-dark");
-}
-
-function showDropdown(){
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-window.onclick = function(event){
-    if (!event.target.matches('.dropdown-button') && !document.getElementsByClassName('dropdown-content')[0].contains(event.target)){
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++){
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')){
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
-/*
-*   COMPARISON
+*   Initial function which initiates the comparisons of summoners.
 */
 function complete_comp_func(season){
     var name_arr = name_gather();
@@ -568,6 +12,15 @@ function complete_comp_func(season){
         * data func --> extracts the data for the specific season
         * table func --> inserts the data into a table
     */
+
+    // Remove previous errors
+    error = document.getElementById('error');
+    while (error != null){
+        console.log("error: ", error);
+        error.remove();
+        error = document.getElementById('error');
+    }
+
     var url1 = 'https://na.op.gg/summoner/userName=' + name_arr[0];
     myBundle.url_func1(season_gather1, url1, season, "comp");
     var url2 = 'https://na.op.gg/summoner/userName=' + name_arr[1];
@@ -581,27 +34,90 @@ function complete_comp_func(season){
 function season_gather1(url, purpose){
     var champ = document.getElementById('champion').value;
 
-    // Define two different paths for comparisons vs cumulative
+    // Define two different paths for comparisons vs combined
     if (purpose == "comp"){
-        myBundle.data_func1(myBundle.comb_table_func1, url, champ);
+        myBundle.data_func1(myBundle.comb_table_func1, error_notify, url, champ);
     }
-    if (purpose == "cumulative"){
-        myBundle.data_func1(myBundle.cumulative_table_func1, url, champ);
+    if (purpose == "combined"){
+        myBundle.data_func1(myBundle.combined_table_func1, error_notify, url, champ);
     }
 }
 
 function season_gather2(url, purpose){
     var champ = document.getElementById('champion').value;
 
-    // Define two different paths for comparisons vs cumulative
+    // Check that the champion exists
+    myBundle.champ_func(champ_check, champ);
+
+    // Define two different paths for comparisons vs combined
     if (purpose == "comp"){
-        myBundle.data_func2(myBundle.comb_table_func2, url, champ);
+        myBundle.data_func2(myBundle.comb_table_func2, error_notify, url, champ);
     }
-    if (purpose == "cumulative"){
-        myBundle.data_func2(myBundle.cumulative_table_func2, url, champ);
+    if (purpose == "combined"){
+        myBundle.data_func2(myBundle.combined_table_func2, error_notify, url, champ);
     }
 }
 
+/*
+    Create the html which will notify the user that their input is invalid.
+*/
+function error_notify(summoner){
+    var tag = document.createElement("div");
+    tag.id = "error";
+
+    tag_img = document.createElement("div");
+    tag_img.id = "error-img";
+    tag.appendChild(tag_img);
+
+    tag_text = document.createElement("p");
+    tag_text.id = "error-text";
+    tag_text.innerHTML = "An invalid name was entered for Summoner " +  summoner + ".";
+    tag.appendChild(tag_text);
+
+    var element = document.getElementById("error-div");
+    element.appendChild(tag);
+}
+
+/*
+*   Checks that the champion which was input exists.
+*/
+function champ_check(data, champ){
+    // Make champion name match that gathered by champions.json
+    champ = champ.toLowerCase();
+    champ = champ.replace("'", "");
+    champ = champ.replace(" ", "");
+
+    exist = false;
+
+    // Iterate through every champion name
+    for (i = 0; i < data.length; i++){
+        // If the champion exists, set exist to true
+        if (champ == data[i].id){
+            exist = true;
+        }
+    }
+    // If the champion does not exist, notify the user
+    if (exist == false){
+        var tag = document.createElement("div");
+        tag.id = "error";
+
+        tag_img = document.createElement("div");
+        tag_img.id = "error-img";
+        tag.appendChild(tag_img);
+
+        tag_text = document.createElement("p");
+        tag_text.id = "error-text";
+        tag_text.innerHTML = "An invalid champion name was entered.";
+        tag.appendChild(tag_text);
+
+        var element = document.getElementById("error-div");
+        element.appendChild(tag);
+    }
+}
+
+/*
+    Return the names as a pair which are useable for urls
+*/
 function name_gather(){
     var name1 = document.getElementById('first-name').value;
     var name2 = document.getElementById('second-name').value;
@@ -625,29 +141,6 @@ function name_gather(){
     }
 
     return [name1_final, name2_final];
-}
-/*
-    Resets all seasons (other than season) to the base blue color,
-    suffix defines whether this is being done for compare or cumulatives
-    scroll bar.
-*/
-function set_other_colors(season, suffix){
-
-    if (localStorage.getItem("checked") == "0"){
-        console.log("Green");
-        color = "green-scroll"
-    }
-    else{
-        console.log("Red");
-        color = "red-scroll"
-    }
-
-    for (var i = 1; i < 12; i++){
-        if (i != parseInt(season)){
-            document.getElementById("season-" + String(i) + suffix).classList.remove(color);
-        }
-    }
-    document.getElementById("season-" + season + suffix).classList.add(color);
 }
 
 /*
@@ -749,11 +242,23 @@ function compare_values(){
         }
     }
 }
-function complete_cumulative_func(season){
+
+/*
+*   Initial function which initiates the combination of summoners.
+*/
+function complete_combined_func(season){
+    // Remove previous errors
+    error = document.getElementById('error');
+    while (error != null){
+        console.log("error: ", error);
+        error.remove();
+        error = document.getElementById('error');
+    }
+
     var name_arr = name_gather();
 
     var url1 = 'https://na.op.gg/summoner/userName=' + name_arr[0];
-    myBundle.url_func1(season_gather1, url1, season, "cumulative");
+    myBundle.url_func1(season_gather1, url1, season, "combined");
     var url2 = 'https://na.op.gg/summoner/userName=' + name_arr[1];
-    myBundle.url_func2(season_gather2, url2, season, "cumulative");
+    myBundle.url_func2(season_gather2, url2, season, "combined");
 }
