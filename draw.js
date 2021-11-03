@@ -22,15 +22,16 @@ clearButton.addEventListener('click', clearCanvas);
 greenButton.addEventListener('click', placeGreen);
 pinkButton.addEventListener('click', placePink);
 
+/*
+*   start/draw/stop combine to provide the actual drawings functionality.
+*/
 function start(e){
   isDrawing = true;
   draw(e);
 }
-
 function draw({clientX: x, clientY: y}){
-  //console.log(x, y);
   var bounds = canvas.getBoundingClientRect();
-  //console.log(bounds);
+
   y = y - bounds.y;
   x = x - bounds.x;
   if (!isDrawing) return;
@@ -43,16 +44,21 @@ function draw({clientX: x, clientY: y}){
   ctx.beginPath();
   ctx.moveTo(x, y);
 }
-
 function stop(){
   isDrawing = false;
   ctx.beginPath();
 }
 
+/*
+*   Clear the drawings on the map.
+*/
 function clearCanvas(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+/*
+*   Place a green ward on the map.
+*/
 function placeGreen(){
   var tag = document.createElement("div");
   tag.id = "item-green";
@@ -60,13 +66,15 @@ function placeGreen(){
   element.appendChild(tag);
 }
 
+/*
+*   Place a pink ward on the map.
+*/
 function placePink(){
   var tag = document.createElement("div");
   tag.id = "item-pink";
   var element = document.getElementById("container");
   element.appendChild(tag);
 }
-
 
 // Draggable element code:
 // https://www.kirupa.com/html5/drag.htm
@@ -84,6 +92,10 @@ container.addEventListener("mousedown", dragStart, false);
 container.addEventListener("mouseup", dragEnd, false);
 container.addEventListener("mousemove", drag, false);
 
+/*
+*   dragStart/dragEnd/drag combine to provide the functionality of
+*   dragging the green/pink wards.
+*/
 function dragStart(e) {
 
   if (e.target !== e.currentTarget) {
@@ -105,20 +117,15 @@ function dragStart(e) {
         activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
         activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
       } else {
-        console.log("doing something!");
         activeItem.initialX = e.clientX - activeItem.xOffset;
         activeItem.initialY = e.clientY - activeItem.yOffset;
       }
     }
   }
 }
-
 function dragEnd(e) {
-  console.log("X: ", activeItem.currentX);
-  console.log("Y: ", activeItem.currentY);
-
+  // If the item is dragged into the deletion bin, remove it
   if (activeItem.currentX < -449 && activeItem.currentY < -291){
-    console.log("DELETE");
     activeItem.remove();
   }
   if (activeItem !== null) {
@@ -129,7 +136,6 @@ function dragEnd(e) {
   active = false;
   activeItem = null;
 }
-
 function drag(e) {
 
   if (active) {
