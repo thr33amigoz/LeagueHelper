@@ -16,32 +16,6 @@ canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', stop);
 
 canvas.addEventListener('mousewheel', scroll_func);
-/*
-var drawCanvas = document.createElement('CANVAS');
-var drawCtx = drawCanvas.getContext('2d');
-drawCtx.fillStyle = "#FF0000";
-drawCtx.fillRect(500, 500, 550, 500);
-
-drawCanvas.width = canvas.width;
-drawCanvas.height = canvas.height;
-
-document.getElementById('newCanvas').appendChild(drawCanvas);
-*/
-function scroll_func(opt){
-  
-  //console.log(opt.offsetX, canvas.width);
-  //console.log(opt.offsetY, canvas.height);
-  /*console.log("zoom");
-
-  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.width);
-  ctx.save();
-  ctx.translate(ctx.canvas.width / 2, ctx.canvas.width / 2);
-  ctx.scale(.5, .5);
-  ctx.drawImage(drawCanvas, -ctx.canvas.width / 2, -ctx.canvas.width / 2);
-  ctx.restore();
-  */
-};
-
 
 clearButton.addEventListener('click', clearCanvas);
 
@@ -78,18 +52,6 @@ function stop(){
 function clearCanvas(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
-/*
-window.addEventListener('resize', resizeCanvas);
-function resizeCanvas () {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  //canvas.width = 1200;
-  //canvas.height = 900;
-  //console.log(canvas.width);
-  //console.log(canvas.height);
-}
-resizeCanvas();
-*/
 
 function placeGreen(){
   var tag = document.createElement("div");
