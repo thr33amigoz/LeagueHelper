@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    /*min-height: 100vh;*/
+    background: linear-gradient(#2b1055, #7597de);
+    color: white;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+header .logo{
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul li{
+    list-style: none;
+    margin-left: 20px;
+}
+header ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff;
+    border-radius: 20px;
+}
+header ul li a:hover,
+header ul li a.active{
+    background: #fff;
+    color: #2b1055;
+}
+#main-section
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+}
+section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+@font-face{
+    font-family: LeagueFont;
+    src: url(font/Friz\ Quadrata\ Regular.ttf)
+}
+.main-title{
+    margin-top: 20px;
+    /*width: 300px;*/
+    text-align: center;
+    font-size: 4rem;
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #6f93e0 0%, #6422cf 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+.logo{
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: url("pictures/new_logo_light.png");
+    background-size: cover;
+    background-position: 0%;
+}
+.block-ul{
+    margin-top: 120px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.block{
+    list-style: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 60vh;
+    width: 32%;
+    opacity: 50%;
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0);
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+#block-one{
+    background-image: url("pictures/cosmic-charger-hecarim.jpg");
+    background-position: 61% 0%;
+}
+#block-one:hover{
+    opacity: 65%;
+}
+#block-two{
+    background-image: url("pictures/cosmic-nidalee.jpg");
+}
+#block-two:hover{
+    opacity: 65%;
+}
+#block-three{
+    background-image: url("pictures/cosmic-invoker-illaoi.jpg");
+    background-position: 80% 0%;
+}
+#block-three:hover{
+    opacity: 65%;
+}
+.block h1{
+    color: white;
+    text-align: center;
+    font-size: 2vw;
+    margin-top: 165px;
+}
+.block p{
+    color: white;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.block button{
+    margin-top: 25px;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: none;
+}
+.block button:hover{
+    background-color:rgb(215, 215, 215);
+    cursor: pointer;
+}
+form{
+    margin-top: 55px;
+    text-align: center;
+}
+form input{
+    border-radius: 12px;
+    border: none;
+    text-indent: 8px;
+}
+.scrollmenu{
+    margin-top: 25px;
+    background-color: transparent;
+    max-width: 550px;
+    overflow: auto;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+.scrollmenu a{
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    border-radius: 15px;
+    margin-right: 3px;
+    color:rgb(61, 15, 134);
+}
+.scrollmenu a:hover{
+    background-color:rgb(215, 215, 215);
+}
+.scrollmenu a:active{
+    color:rgb(115, 55, 212);
+}
+
+
+.table{
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    /*left: 41%;*/
+    /*margin-left: 35%;*/
+    background-color: transparent;
+    border-radius: 20px;
+}
+th, td{
+    padding: 20px;
+    border: solid 1px white;
+    border-radius: 10px;
+}
+/*
+tr:hover{
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+}
+*/
+.table-pic{
+    position: relative;
+    z-index: 10000;
+    margin-top: 4px;
+    width: 25px;
+    height: 20px;
+    float: right;
+    padding-left: 5px;
+}
+#error{
+    margin-top: 30px;
+    width: auto;
+    height: 60px;
+    border: solid 1px rgba(224,64,6,255);
+    ;
+    border-radius: 20px;
+}
+#error-text{
+    color: rgba(224,64,6,255);
+    margin-top: 15px;
+    margin-left: 90px;
+}
+#error-img{
+    float: left;
+    width: 35px;
+    height: 35px;
+    background-image: url("../pictures/red-x.png");
+    background-size: contain;
+    margin-top: 11px;
+    margin-left: 30px;
+}
+
+
+
+canvas{
+    /*width: 1200px;*/
+    /*min-height: 900px;*/
+    position: relative;
+    margin-top: 12px; 
+    background: url('../pictures/summoners-rift.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}
+#outerContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#container{
+    position: absolute;
+    width: 1200px;
+    height: 900px;
+    top: 132px;
+    /*background-color: #333;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 7px;
+    touch-action: none;
+    z-index: 0;
+}
+#item-green{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(72, 196, 78);
+    /*border: 10px solid rgba(136, 136, 136, .1);*/
+    box-shadow: 0px 0px 0px 22px rgba(72, 196, 78, .5);
+    border-radius: 50%;
+    touch-action: none;
+    user-select: none;
+    z-index: 1000;
+    position: absolute;
+}
+#item-green:active{
+    background-color: rgb(67, 182, 73);
+    box-shadow: 0px 0px 0px 20px rgba(72, 196, 78, .5);
+}
+#item-green:hover{
+    cursor: pointer;
+    border-width: 20px;
+}
+#item-pink{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(235, 91, 215);
+    /*border: 10px solid rgba(136, 136, 136, .1);*/
+    box-shadow: 0px 0px 0px 22px rgba(235, 91, 215, .5);
+    border-radius: 50%;
+    touch-action: none;
+    user-select: none;
+    z-index: 1000;
+    position: absolute;
+}
+#item-pink:active{
+    background-color: rgb(233, 72, 211, 1.00);
+    box-shadow: 0px 0px 0px 20px rgba(235, 91, 215, .5);
+}
+#item-pink:hover{
+    cursor: pointer;
+    border-width: 20px;
+}
+#square{
+    position: absolute;
+    top: 6px;
+    left: 0px;
+    width: 150px;
+    height: 150px;
+    background-image: url('../pictures/trash-can.png');
+    background-size: contain;
+    background-color: rgba(92, 92, 92, 0.5);
+    border-right: 4px solid rgba(40, 40, 40, 0.5);
+    border-bottom: 4px solid rgba(40, 40, 40, 0.5);
+    z-index: 2000;
+}
+#square:hover{
+    background-color: rgba(75, 75, 75, 0.5);
+}
+/*
+    Art thing
+*/
+.body-draw{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background: #F3F3F3;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+.main-draw{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    background: #171717;
+    background-size: contain;
+    background-attachment: fixed;
+    z-index: 40000;
+}
+.main-draw section{
+    display: block;
+    margin: 15px auto;
+    /*
+    width: 30px;
+    height: 30px;
+    */
+    width: 30px;
+    height: 30px;
+}
+.main-draw .colors{
+    /*background: #171717;*/
+    /*
+    background-image: url('../pictures/color-wheel.png');
+    */
+    background-size: 120%;
+    background-position: 50% 50%;
+    border: 1px solid #F3F3F3;
+    position: relative;
+}
+.main-draw .colors:hover .color-picker{
+    display: block;
+}
+.main-draw .colors .color-picker{
+    display: none;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+}
+.main-draw .colors .color-picker:focus{
+    display: block;
+}
+.main-draw .thickness{
+    position: relative;
+    background-color: #F3F3F3;
+}
+.main-draw .thickness::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background: #171717;
+}
+.main-draw .thickness .stroke-weight{
+    display: none;
+    position: absolute;
+    width: auto;
+    height: 25px;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.main-draw .thickness .stroke-weight:focus{
+    display: block;
+}
+.main-draw .thickness:hover .stroke-weight{
+    display: block;
+}
+.main-draw .clear {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    color: #171717;
+    font-size: 20px;
+    font-weight: 900;
+    background-color: rgb(156, 102, 255);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.main-draw .green-ward{
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    color: #171717;
+    font-size: 20px;
+    font-weight: 900;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    background-image: url('../pictures/green-eye.png');
+    background-size: 45px;
+    background-position: 48% 50%;
+}
+.main-draw .pink-ward{
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    color: #171717;
+    font-size: 20px;
+    font-weight: 900;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    background-image: url('../pictures/pink-eye.png');
+    background-size: 45px;
+    background-position: 48% 50%;
+}
