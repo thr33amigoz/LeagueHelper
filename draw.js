@@ -16,22 +16,47 @@ canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', stop);
 
 canvas.addEventListener('mousewheel', scroll_func);
+/*
+var drawCanvas = document.createElement('CANVAS');
+var drawCtx = drawCanvas.getContext('2d');
+drawCtx.fillStyle = "#FF0000";
+drawCtx.fillRect(500, 500, 550, 500);
+
+drawCanvas.width = canvas.width;
+drawCanvas.height = canvas.height;
+
+document.getElementById('newCanvas').appendChild(drawCanvas);
+*/
+function scroll_func(opt){
+  
+  //console.log(opt.offsetX, canvas.width);
+  //console.log(opt.offsetY, canvas.height);
+  /*console.log("zoom");
+
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.width);
+  ctx.save();
+  ctx.translate(ctx.canvas.width / 2, ctx.canvas.width / 2);
+  ctx.scale(.5, .5);
+  ctx.drawImage(drawCanvas, -ctx.canvas.width / 2, -ctx.canvas.width / 2);
+  ctx.restore();
+  */
+};
+
 
 clearButton.addEventListener('click', clearCanvas);
 
 greenButton.addEventListener('click', placeGreen);
 pinkButton.addEventListener('click', placePink);
 
-/*
-*   start/draw/stop combine to provide the actual drawings functionality.
-*/
 function start(e){
   isDrawing = true;
   draw(e);
 }
-function draw({clientX: x, clientY: y}){
-  var bounds = canvas.getBoundingClientRect();
 
+function draw({clientX: x, clientY: y}){
+  //console.log(x, y);
+  var bounds = canvas.getBoundingClientRect();
+  //console.log(bounds);
   y = y - bounds.y;
   x = x - bounds.x;
   if (!isDrawing) return;
@@ -44,21 +69,28 @@ function draw({clientX: x, clientY: y}){
   ctx.beginPath();
   ctx.moveTo(x, y);
 }
+
 function stop(){
   isDrawing = false;
   ctx.beginPath();
 }
 
-/*
-*   Clear the drawings on the map.
-*/
 function clearCanvas(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
-
 /*
-*   Place a green ward on the map.
+window.addEventListener('resize', resizeCanvas);
+function resizeCanvas () {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  //canvas.width = 1200;
+  //canvas.height = 900;
+  //console.log(canvas.width);
+  //console.log(canvas.height);
+}
+resizeCanvas();
 */
+
 function placeGreen(){
   var tag = document.createElement("div");
   tag.id = "item-green";
@@ -66,15 +98,13 @@ function placeGreen(){
   element.appendChild(tag);
 }
 
-/*
-*   Place a pink ward on the map.
-*/
 function placePink(){
   var tag = document.createElement("div");
   tag.id = "item-pink";
   var element = document.getElementById("container");
   element.appendChild(tag);
 }
+
 
 // Draggable element code:
 // https://www.kirupa.com/html5/drag.htm
@@ -92,10 +122,6 @@ container.addEventListener("mousedown", dragStart, false);
 container.addEventListener("mouseup", dragEnd, false);
 container.addEventListener("mousemove", drag, false);
 
-/*
-*   dragStart/dragEnd/drag combine to provide the functionality of
-*   dragging the green/pink wards.
-*/
 function dragStart(e) {
 
   if (e.target !== e.currentTarget) {
@@ -117,15 +143,20 @@ function dragStart(e) {
         activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
         activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
       } else {
+        console.log("doing something!");
         activeItem.initialX = e.clientX - activeItem.xOffset;
         activeItem.initialY = e.clientY - activeItem.yOffset;
       }
     }
   }
 }
+
 function dragEnd(e) {
-  // If the item is dragged into the deletion bin, remove it
+  console.log("X: ", activeItem.currentX);
+  console.log("Y: ", activeItem.currentY);
+
   if (activeItem.currentX < -449 && activeItem.currentY < -291){
+    console.log("DELETE");
     activeItem.remove();
   }
   if (activeItem !== null) {
@@ -136,6 +167,7 @@ function dragEnd(e) {
   active = false;
   activeItem = null;
 }
+
 function drag(e) {
 
   if (active) {

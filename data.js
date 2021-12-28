@@ -2,9 +2,6 @@ module.exports = {url_func1: url_gather1, url_func2: url_gather2, data_func1: da
     comb_table_func1: table_populate1, comb_table_func2: table_populate2, combined_table_func1: combined_table1,
     combined_table_func2: combined_table2, champ_func: gather_champs}
 
-/*
-*   Gather the op.gg url for the first summoner.
-*/
 function url_gather1(ret_func, url, season, purpose){
     const request = require('request')
     request(url, function (
@@ -59,9 +56,6 @@ function url_gather1(ret_func, url, season, purpose){
     });
 }
 
-/*
-*   Gather the op.gg url for the second summoner.
-*/
 function url_gather2(ret_func, url, season, purpose){
     const request = require('request')
     request(url, function (
@@ -116,9 +110,6 @@ function url_gather2(ret_func, url, season, purpose){
     });
 }
 
-/*
-*   Gather data on the first summoner.
-*/
 function data_gather1(ret_func, error_func, url, champ){
     const request = require('request')
     request(url, function (
@@ -208,9 +199,6 @@ function data_gather1(ret_func, error_func, url, champ){
     });
 }
 
-/*
-*   Gathers data on the second summoner.
-*/
 function data_gather2(ret_func, error_func, url, champ){
     const request = require('request')
     request(url, function (
@@ -297,10 +285,6 @@ function data_gather2(ret_func, error_func, url, champ){
         return ret_func(arr);
     });
 }
-
-/*
-*   Populates the first summoner's compare table.
-*/
 function table_populate1(data){    
     // Insert data into the first table (left)
     var tds = document.querySelectorAll('#table1 tbody td');
@@ -308,10 +292,6 @@ function table_populate1(data){
         tds[i].textContent = data[i];
     }
 }
-
-/*
-*   Populates the second summoner's compare table
-*/
 function table_populate2(data){
     // Insert data into the second table (right)
     var tds = document.querySelectorAll('#table2 tbody td');
@@ -320,9 +300,6 @@ function table_populate2(data){
     }
 }
 
-/*
-*   Populates the combined table with the first summoner's information.
-*/
 function combined_table1(data){
     // Insert data into the second table (right)
     var tds = document.querySelectorAll('#combined-table tbody td');
@@ -341,9 +318,6 @@ function combined_table1(data){
     }
 }
 
-/*
-*   Populates the combined table with the second summoner's information.
-*/
 function combined_table2(data){
     // Insert data into the second table (right)
     var tds = document.querySelectorAll('#combined-table tbody td');
@@ -361,7 +335,6 @@ function combined_table2(data){
         data_combine(data, data2, tds);
     }
 }
-
 /*
 *   Adds combined data to the table.
 */

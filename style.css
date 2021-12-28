@@ -160,7 +160,6 @@ section img{
 }
 .block button:hover{
     background-color:rgb(215, 215, 215);
-    cursor: pointer;
 }
 form{
     margin-top: 55px;
