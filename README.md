@@ -1,6 +1,6 @@
 # LeagueHelper
 
-League Helper (https://www.leaguehelper.com/) is a website based on the 5 versus 5 online Riot Game's video game "League of Legends". LH allows for users to combine and compare statistics across two League of Legends accounts. Additionally, teams are able to plan/coordinate using the visual representation of summoners rift and the provided tools. Google Chrome is League Helper's recommended web browser.
+League Helper (https://www.leaguehelper.com/) is a website based on the 5 versus 5 online Riot Game's video game "League of Legends". LH allows for users to combine and compare statistics across two League of Legends accounts. Additionally, teams are able to plan/coordinate using the visual representation of Summoners Rift (the game's map) and the provided tools. Google Chrome is League Helper's recommended web browser.
 
 Photos of the listed functionalities can be seen below:
 ## Compare Statistics
